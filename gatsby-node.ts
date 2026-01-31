@@ -38,7 +38,8 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
 
   // Handle /category/[id]
   if (page.path.match(/^\/category/)) {
-    page.matchPath = "/category/*";
+    // page.matchPath = "/category/*";
+    page.matchPath = "/category/:id";
     createPage(page);
     return; // Exit early after creating the page
   }
@@ -46,7 +47,7 @@ export const onCreatePage: GatsbyNode["onCreatePage"] = async ({
   // Handle /trip/detail/[id]
   if (page.path.match(/^\/trip\/details/)) {
     // page.matchPath = "/trip/details/*";
-    page.matchPath = "/category/:id";
+    page.matchPath = "/trip/details/:id";
     createPage(page);
     return;
   }

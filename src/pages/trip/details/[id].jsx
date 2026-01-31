@@ -14,7 +14,7 @@ const TourDetail = ({ params }) => {
   const [error, setError] = useState(null);
 
   // Gatsby passes URL parameters to the 'params' prop in dynamic routes
-  const id = params.id;
+  const id = params.id || params["*"];
 
   useEffect(() => {
     const fetchTourData = async () => {
