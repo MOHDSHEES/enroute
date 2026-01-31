@@ -7,7 +7,7 @@ import AboutTwo from "@/components/sections/AboutTwo/AboutTwo";
 import DestinationFilter from "@/components/sections/DestinationFilter/DestinationFilter";
 import CTAFive from "@/components/sections/CtaFive/CtaFive";
 import FooterOne from "@/components/layout/FooterOne/FooterOne";
-import FeatureTwo from "@/components/sections/FeatureTwo/FeatureTwo";
+// import FeatureTwo from "@/components/sections/FeatureTwo/FeatureTwo";
 import OfferTwo from "@/components/sections/OfferTwo/OfferTwo";
 import WhyChooseOne from "@/components/sections/WhyChooseOne/WhyChooseOne";
 import TestimonialsThree from "@/components/sections/TestimonialsThree/TestimonialsThree";
@@ -20,18 +20,18 @@ const HomeOnePage: React.FC<PageProps> = () => {
   return (
     <ThemeProvider>
       <Layout>
-        <TopbarOne extraClass='top-one--two' />
+        <TopbarOne extraClass="top-one--two" />
         <HeaderOne />
         <MainSliderOne />
-        <AboutTwo cta={true} extraClass='about-two--two' />
+        <AboutTwo cta={true} extraClass="about-two--two" />
         <DestinationFilter />
         <CTAFive />
-        <FeatureTwo />
+        {/* <FeatureTwo /> */}
         <OfferTwo />
         <WhyChooseOne />
         <TestimonialsThree />
         <BlogFive />
-        <InstagramOne extraClass='instagram-one--two' />
+        <InstagramOne extraClass="instagram-one--two" />
         <FooterOne />
       </Layout>
     </ThemeProvider>
