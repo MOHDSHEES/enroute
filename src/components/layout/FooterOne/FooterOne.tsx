@@ -251,7 +251,13 @@ const FooterOne: React.FC = () => {
             </p>
             <p className="main-footer__madeby">
               Made with ❤️ by{" "}
-              <Link to="https://www.technboost.com">TechnBoost</Link>
+              <a
+                href="https://www.technboost.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                TechnBoost
+              </a>
             </p>
             {/* <div className="main-footer__bottom__pyment">
               <Link to="/checkout">
