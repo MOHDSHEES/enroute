@@ -108,14 +108,14 @@ const HeaderOne: React.FC = () => {
               Get in touch <i className="icon-paper-plane"></i>
             </Link>
 
-            {/* <div
+            <div
               className="mobile-nav__btn mobile-nav__toggler"
               onClick={handelClick}
             >
               <span></span>
               <span></span>
               <span></span>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

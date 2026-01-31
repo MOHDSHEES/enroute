@@ -99,12 +99,12 @@ const HeaderOneCloned: React.FC = () => {
               </Link>
             </div> */}
 
-            {/* <div
-              className='main-header__btn-popup main-header__element__btn'
+            <div
+              className="main-header__btn-popup main-header__element__btn"
               onClick={toggleSidebar}
             >
-              <i className='icon-menu-bar'></i>
-            </div> */}
+              <i className="icon-menu-bar"></i>
+            </div>
 
             <Link to="contact" className="gotur-btn main-header__btn">
               Get in touch <i className="icon-paper-plane"></i>

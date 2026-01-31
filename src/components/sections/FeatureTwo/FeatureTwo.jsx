@@ -19,8 +19,23 @@ const TinySlider = loadable(() => import("tiny-slider-react"), {
 const FeatureTwo = ({ trending, extraClass, id }) => {
   const [isOpen, setOpen] = useState(false);
   const [videoId, setVideoId] = useState("");
-  console.log(trending);
+  // console.log(trending);
+  const imageContainerStyle = {
+    position: "relative",
+    width: "100%",
+    // Using a 16:11 or 3:2 ratio for a "landscape" look typical for travel listings
+    aspectRatio: "16 / 11",
+    overflow: "hidden",
+    borderRadius: "12px 12px 0 0", // Only top corners rounded if content is below
+    display: "block",
+  };
 
+  const imageStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover", // This ensures all images fill the space perfectly
+    display: "block",
+  };
   return (
     <>
       <section
@@ -97,24 +112,26 @@ const FeatureTwo = ({ trending, extraClass, id }) => {
                       >
                         <div
                           className="listing-card-four__image"
-                          style={{
-                            width: "438px",
-                            height: "300px",
-                            overflow: "hidden",
-                            position: "relative",
-                          }}
+                          style={imageContainerStyle}
+                          // style={{
+                          //   width: "438px",
+                          //   height: "300px",
+                          //   overflow: "hidden",
+                          //   position: "relative",
+                          // }}
                         >
                           <img
                             src={
                               item.thumbnail_url ? item.thumbnail_url : image1
                             }
                             alt={item.name}
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover", // Ensures no stretching
-                              display: "block",
-                            }}
+                            style={imageStyle}
+                            // style={{
+                            //   width: "100%",
+                            //   height: "100%",
+                            //   objectFit: "contain", // Ensures no stretching
+                            //   display: "block",
+                            // }}
                           />
 
                           <ul className="listing-card-four__meta list-unstyled">

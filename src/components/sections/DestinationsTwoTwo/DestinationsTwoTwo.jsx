@@ -1,3 +1,133 @@
+// "use client";
+// import React from "react";
+// import { Container, Row, Col } from "react-bootstrap";
+// import TextAnimation from "@/components/common/AnimatedText/TextAnimation";
+// import destinationsTwoTwoData from "@/data/destinationsTwoTwoData";
+// import loadable from "@loadable/component";
+// import { Link } from "gatsby";
+// import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+// import destinationImg3 from "@/assets/images/resources/destinations-2-3.jpg";
+
+// const TinySlider = loadable(() => import("tiny-slider-react"), {
+//   ssr: false,
+// });
+
+// const DestinationsTwoTwo = ({ categories }) => {
+//   const { elementImage } = destinationsTwoTwoData;
+
+//   const carouselOptions = {
+//     items: 1,
+//     gutter: 30,
+//     loop: true,
+//     smartSpeed: 700,
+//     controls: true,
+//     controlsContainer: ".destinations-two__bottom__nav",
+//     nav: false,
+//     autoplay: true,
+//     autoplayTimeout: 3000,
+//     autoplayButton: false,
+//     autoplayButtonOutput: false,
+//     responsive: {
+//       0: { items: 2 },
+//       575: { items: 2 },
+//       768: { items: 3 },
+//       992: { items: 3 },
+//       1199: { items: 4 },
+//     },
+//   };
+
+//   const thumbContainerStyle = {
+//     position: "relative",
+//     width: "100%",
+//     // This creates a consistent vertical rectangle (width 3 : height 4)
+//     // On mobile, it stays proportional to the screen width.
+//     aspectRatio: "3 / 4",
+//     overflow: "hidden",
+//     borderRadius: "12px",
+//     backgroundColor: "#f5f5f5",
+//   };
+
+//   const cardImageStyle = {
+//     width: "100%",
+//     height: "100%", // Tells the image to fill the aspect-ratio container
+//     objectFit: "cover", // Crops different sized images to fit the 3:4 shape
+//     display: "block",
+//   };
+
+//   return (
+//     <section
+//       className="destinations-two destinations-two--two section-space"
+//       id="destination"
+//     >
+//       <Container>
+//         <div className="destinations-two__top">
+//           <Row className="align-items-end">
+//             <Col lg={8}>
+//               <div className="sec-title">
+//                 <h6 className="sec-title__tagline">
+//                   <TextAnimation text={"Popular"} animationType="right" />
+//                 </h6>
+//                 <h3 className="sec-title__title d-md-flex gap-2">
+//                   <TextAnimation text={"Categories"} animationType="left" />
+//                 </h3>
+//               </div>
+//             </Col>
+//             <Col lg={4}>
+//               <div className="destinations-two__bottom__nav">
+//                 <button className="destinations-two__carousel__nav--left">
+//                   <span className="icon-arrow-left"></span>
+//                 </button>
+//                 <button className="destinations-two__carousel__nav--right">
+//                   <span className="icon-arrow-right"></span>
+//                 </button>
+//               </div>
+//             </Col>
+//           </Row>
+//         </div>
+//       </Container>
+
+//       <div className="container-fluid">
+//         <div className="destinations-two__inner">
+//           <TinySlider
+//             className="destinations-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+//             settings={carouselOptions}
+//           >
+//             {categories.map((cate, index) => (
+//               <div key={cate.id || index}>
+//                 <div className="item">
+//                   <div
+//                     className="destinations-card-two wow fadeInUp"
+//                     data-wow-duration="1500ms"
+//                   >
+//                     <div
+//                       className="destinations-card-two__thumb"
+//                       style={thumbContainerStyle}
+//                     >
+//                       <img
+//                         src={cate.image_url ? cate.image_url : destinationImg3}
+//                         alt={cate.name}
+//                         style={cardImageStyle}
+//                       />
+//                     </div>
+//                     <h4 className="destinations-card-two__title">
+//                       <Link to={`/category/${cate.id}`}>{cate.name}</Link>
+//                     </h4>
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </TinySlider>
+//         </div>
+//       </div>
+
+//       <div className="destinations-two__element">
+//         <DynamicImage src={elementImage} alt="" />
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default DestinationsTwoTwo;
 "use client";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
@@ -32,7 +162,7 @@ const DestinationsTwoTwo = ({ categories }) => {
     // autoplayHoverPause: true, // Optional: pauses when user hovers over the slide
 
     responsive: {
-      0: { items: 1 },
+      0: { items: 2 },
       575: { items: 2 },
       768: { items: 3 },
       992: { items: 3 },
@@ -56,7 +186,23 @@ const DestinationsTwoTwo = ({ categories }) => {
   //     1199: { items: 4 },
   //   },
   // };
+  const thumbContainerStyle = {
+    position: "relative",
+    width: "100%",
+    // This creates a consistent vertical rectangle (width 3 : height 4)
+    // On mobile, it stays proportional to the screen width.
+    aspectRatio: "3 / 4",
+    overflow: "hidden",
+    // borderRadius: "12px",
+    backgroundColor: "#f5f5f5",
+  };
 
+  const cardImageStyle = {
+    width: "100%",
+    height: "100%", // Tells the image to fill the aspect-ratio container
+    objectFit: "cover", // Crops different sized images to fit the 3:4 shape
+    display: "block",
+  };
   return (
     <section
       className="destinations-two destinations-two--two section-space"
@@ -108,21 +254,23 @@ const DestinationsTwoTwo = ({ categories }) => {
                   >
                     <div
                       className="destinations-card-two__thumb"
-                      style={{
-                        width: "320px",
-                        height: "426px",
-                        overflow: "hidden",
-                      }}
+                      style={thumbContainerStyle}
+                      // style={{
+                      //   // width: "320px",
+                      //   height: "426px",
+                      //   overflow: "hidden",
+                      // }}
                     >
                       <img
                         src={cate.image_url ? cate.image_url : destinationImg3}
                         alt={cate.name}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          display: "block",
-                        }}
+                        style={cardImageStyle}
+                        // style={{
+                        //   width: "100%",
+                        //   height: "100%",
+                        //   objectFit: "cover",
+                        //   display: "block",
+                        // }}
                       />
                       {/* <div
                         className="destinations-card-two__hover"

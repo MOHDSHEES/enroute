@@ -61,7 +61,7 @@ const BannerForm: React.FC = () => {
         >
           <div
             className="banner-form row gutter-x-30 align-items-center"
-            style={{ minWidth: "80%" }}
+            style={{ minWidth: "80%", gap: "15px" }}
           >
             {/* <div className="banner-form__control banner-form__col--1">
               <i className="icon icon-location"></i>
@@ -136,7 +136,7 @@ const BannerForm: React.FC = () => {
             </div> */}
             <div
               className="banner-form__control banner-form__col--4"
-              style={{ flex: 1, minWidth: 0 }}
+              style={{ flex: 1, minWidth: 0, paddingRight: "0px" }}
             >
               <i className="icon icon-search"></i>
               {/* <label htmlFor="search">Search</label> */}

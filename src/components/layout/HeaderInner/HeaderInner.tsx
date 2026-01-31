@@ -130,14 +130,16 @@ const HeaderInner: React.FC = () => {
             </div>
           </div>
 
-          {/*  
-             <div className="main-header__btn-popup main-header__element__btn" onClick={changeSideBarDrawerStatus}>
-               <i className="icon-menu-bar"></i>
-             </div>
- 
-             <Link to="contact" className="gotur-btn main-header__btn">
-               Get in touch <i className="icon-paper-plane"></i>
-             </Link> */}
+          {/* <div
+            className="main-header__btn-popup main-header__element__btn"
+            // onClick={changeSideBarDrawerStatus}
+          >
+            <i className="icon-menu-bar"></i>
+          </div>
+
+          <Link to="contact" className="gotur-btn main-header__btn">
+            Get in touch <i className="icon-paper-plane"></i>
+          </Link> */}
         </div>
       </div>
     </header>

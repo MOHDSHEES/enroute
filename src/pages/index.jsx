@@ -15,6 +15,7 @@ import BlogTwoTwo from "@/components/sections/BlogTwoTwo/BlogTwoTwo";
 import ThemeProvider from "@/provider/ThemeProvider";
 import DestinationsTwoTwo from "@/components/sections/DestinationsTwoTwo/DestinationsTwoTwo";
 import { supabase } from "@/lib/supabase";
+import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
 
 const HomeThreePage = () => {
   // 1. Initialize state for your data
@@ -62,6 +63,7 @@ const HomeThreePage = () => {
         <TopbarOne />
         <HeaderOne />
         <HeaderOneCloned />
+        {/* <HeaderInnerCloned /> */}
 
         <MainSliderThree />
         <AboutOne />
