@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/category/:id",
+      "destination": "/category/[id]/index.html"
+    },
+    {
+      "source": "/trip/details/:id",
+      "destination": "/trip/detail/[id]/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
