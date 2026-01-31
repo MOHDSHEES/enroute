@@ -54,6 +54,7 @@ const HomeThreePage = () => {
 
     fetchData();
   }, []);
+  console.log(trending);
 
   return (
     <ThemeProvider>
@@ -69,12 +70,13 @@ const HomeThreePage = () => {
         <DestinationsTwoTwo categories={categories} />
 
         {/* Trending Section */}
-        <FeatureTwo
-          trending={trending}
-          extraClass="section-space"
-          id="popular"
-        />
-
+        {trending.length > 0 && (
+          <FeatureTwo
+            trending={trending}
+            extraClass="section-space"
+            id="popular"
+          />
+        )}
         <OfferTwo />
         <DestinationCarouselTwo />
         <TestimonialsTwo />
