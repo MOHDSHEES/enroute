@@ -1,0 +1,40 @@
+let mainImage = "blog/blog-4-1.jpg";
+let smallImage1 = "blog/blog-s-4-1.jpg";
+let smallImage2 = "blog/blog-s-4-2.jpg";
+
+const blogTwoData = {
+  sectionTagline: "Blog & News",
+  sectionTitle: "Explore Blogs <span>And News</span>",
+  buttonText: "See More Article",
+  buttonLink: "/blog-details-left",
+
+  mainBlog: {
+    image: mainImage,
+    date: { day: "22", month: "Feb" },
+    author: "Admin",
+    category: "Agency",
+    title: "Get Best Advertiser In Your Side Pocket",
+    link: "/blog-details-right",
+  },
+
+  blogs: [
+    {
+      image: smallImage1,
+      date: { day: "10", month: "Mar" },
+      author: "Admin",
+      category: "Travel",
+      title: "Get Best Advertiser In Your Side Pocket",
+      link: "/blog-details-right",
+    },
+    {
+      image: smallImage2,
+      date: { day: "03", month: "Jun" },
+      author: "Admin",
+      category: "Tour",
+      title: "Get Best Advertiser In Your Side Pocket",
+      link: "/blog-details-right",
+    },
+  ],
+};
+
+export default blogTwoData;

@@ -1,0 +1,64 @@
+let home1Img = "landing/home-1.jpg";
+let home2Img = "landing/home-2.jpg";
+let home3Img = "landing/home-3.jpg";
+let home4Img = "landing/home-4.jpg";
+
+let homeBoxedImg = "landing/home-boxed.jpg";
+let homeRtlImg = "landing/home-rtl.jpg";
+
+export const demoOneData = [
+  {
+    id: 4,
+    image: home1Img,
+    alt: "Home Page 01",
+    title: "Home Page 01",
+    buttons: [
+      { href: "/home1/", label: "Multi Page" },
+      { href: "/home1-one/", label: "One Page" },
+    ],
+  },
+  {
+    id: 5,
+    image: home2Img,
+    alt: "Home Page 02",
+    title: "Home Page 02",
+    buttons: [
+      { href: "home2", label: "Multi Page" },
+      { href: "home2-one", label: "One Page" },
+    ],
+  },
+  {
+    id: 6,
+    image: home3Img,
+    alt: "Home Page 03",
+    title: "Home Page 03",
+    buttons: [
+      { href: "home3", label: "Multi Page" },
+      { href: "home3-one", label: "One Page" },
+    ],
+  },
+  {
+    id: 7,
+    image: home4Img,
+    alt: "Home Page 04",
+    title: "Home Page 04",
+    buttons: [
+      { href: "home4", label: "Multi Page" },
+      { href: "home4-one", label: "One Page" },
+    ],
+  },
+  {
+    id: 8,
+    image: homeBoxedImg,
+    alt: "Home Boxed",
+    title: "Home Boxed",
+    buttons: [{ href: "home-boxed", label: "View Page" }],
+  },
+  // {
+  //   id: 9,
+  //   image: homeRtlImg,
+  //   alt: "Home RTL",
+  //   title: "Home RTL",
+  //   buttons: [{ href: "home-rtl", label: "View Page" }],
+  // },
+];
