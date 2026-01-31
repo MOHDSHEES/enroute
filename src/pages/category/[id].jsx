@@ -17,6 +17,7 @@ const CategoryDetail = ({ params }) => {
 
   // Use the ID from Gatsby's props (passed automatically to dynamic pages)
   const id = params.id;
+  console.log("id,", id);
 
   // 2. Data Fetching Hook
   useEffect(() => {
