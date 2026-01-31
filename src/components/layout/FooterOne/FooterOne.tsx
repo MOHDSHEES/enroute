@@ -116,7 +116,7 @@ const FooterOne: React.FC = () => {
                 data-wow-duration="1500ms"
                 data-wow-delay="00ms"
               >
-                <h2 className="footer-widget__title">about Gotur</h2>
+                <h2 className="footer-widget__title">about Enroute</h2>
                 <p className="footer-widget__about-text">{data.about.text}</p>
                 <div className="footer-widget__social">
                   {data.about.socials.map((social: SocialLink, idx) => (
