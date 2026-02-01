@@ -15,7 +15,7 @@ export const mainSliderData = {
   elementTwo: elementTwo,
   sliderItems: {
     id: 1,
-    tagLine: "Welcome to Gotur",
+    tagLine: "Welcome to Enroute",
     title: "We Take Care Of Tour Trip",
     titleSpan: "Of Tour Trip",
     subtitle: "Plan your perfect vacation with us",
