@@ -3,7 +3,7 @@ import type { HeadFC, PageProps } from "gatsby";
 import Layout from "@/components/layout/Layout/Layout";
 import TopbarOne from "@/components/common/TopbarOne/TopbarOne";
 import FooterOne from "@/components/layout/FooterOne/FooterOne";
-import InstagramOne from "@/components/sections/InstagramOne/InstagramOne";
+// import InstagramOne from "@/components/sections/InstagramOne/InstagramOne";
 import ThemeProvider from "@/provider/ThemeProvider";
 import HeaderInner from "@/components/layout/HeaderInner/HeaderInner";
 import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";

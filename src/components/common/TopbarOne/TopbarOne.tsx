@@ -4,7 +4,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { topbarOne } from "@/data/topbarOne";
 
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
+// import LanguageSelector from "../LanguageSelector/LanguageSelector";
 import { Link } from "gatsby";
 
 interface ContactInfoItem {
@@ -48,41 +48,41 @@ const TopbarOne: React.FC<TopbarOneProps> = ({ extraClass }) => {
   return (
     <div className={`top-one ${extraClass || ""}`}>
       <Container fluid>
-        <div className='top-one__inner'>
+        <div className="top-one__inner">
           {/* Contact Info */}
-          <ul className='list-unstyled top-one__info'>
+          <ul className="list-unstyled top-one__info">
             {extraClass === "top-one--two"
               ? contactInfo.map((item: ContactInfoItem, index) => (
-                  <li className='top-one__info__item special' key={index}>
+                  <li className="top-one__info__item special" key={index}>
                     <i className={item.iconClass}></i>
                     <Link to={item.href}>{item.label}</Link>
                   </li>
                 ))
               : contactInfoTwo.map((item: ContactInfoItemTwo, index) => (
-                  <li className='top-one__info__item' key={index}>
+                  <li className="top-one__info__item" key={index}>
                     <i className={item.iconClass}></i>
                     <Link to={item.href}>{item.label}</Link>
                   </li>
                 ))}
           </ul>
 
-          <div className='top-one__right'>
+          <div className="top-one__right">
             {/* Address Section */}
-            {extraClass === "top-one--two" ? (
+            {/* {extraClass === "top-one--two" ? (
               <div className='top-one__info__item'>
                 <i className={address.iconClass}></i>
                 <Link to={address.href}>{address.label}</Link>
               </div>
             ) : (
               <LanguageSelector />
-            )}
+            )} */}
 
             {/* Social Links Section */}
-            <div className='top-one__social'>
+            <div className="top-one__social">
               {socialLinks.map((social: SocialLink, index) => (
                 <Link to={social.href} key={index}>
-                  <i className={social.iconClass} aria-hidden='true'></i>
-                  <span className='sr-only'>{social.platform}</span>
+                  <i className={social.iconClass} aria-hidden="true"></i>
+                  <span className="sr-only">{social.platform}</span>
                 </Link>
               ))}
             </div>

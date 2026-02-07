@@ -6,6 +6,7 @@ import TopbarOne from "@/components/common/TopbarOne/TopbarOne";
 import HeaderOne from "@/components/layout/HeaderOne/HeaderOne";
 import HeaderOneCloned from "@/components/layout/HeaderOneCloned/HeaderOneCloned";
 import AboutOne from "@/components/sections/AboutOne/AboutOne";
+
 import FeatureTwo from "@/components/sections/FeatureTwo/FeatureTwo";
 import MainSliderThree from "@/components/sections/MainSliderThree/MainSliderThree";
 import OfferTwo from "@/components/sections/OfferTwo/OfferTwo";
@@ -15,7 +16,7 @@ import BlogTwoTwo from "@/components/sections/BlogTwoTwo/BlogTwoTwo";
 import ThemeProvider from "@/provider/ThemeProvider";
 import DestinationsTwoTwo from "@/components/sections/DestinationsTwoTwo/DestinationsTwoTwo";
 import { supabase } from "@/lib/supabase";
-import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
+// import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
 
 const HomeThreePage = () => {
   // 1. Initialize state for your data
@@ -67,7 +68,6 @@ const HomeThreePage = () => {
 
         <MainSliderThree />
         <AboutOne />
-
         {/* Categories Section */}
         <DestinationsTwoTwo categories={categories} />
 

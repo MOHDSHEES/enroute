@@ -1,5 +1,5 @@
 // AboutOne.tsx
-import React from "react";
+import React, { useState } from "react";
 
 import { aboutOneData } from "@/data/aboutOne";
 import { Col, Container, Row } from "react-bootstrap";
@@ -56,7 +56,11 @@ const AboutOne: React.FC<AboutOneProps> = ({ extraclass }) => {
     button,
     images,
   }: AboutData = aboutOneData;
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggleReadMore = () => {
+    setIsExpanded(!isExpanded);
+  };
   return (
     <section className={`about-one section-space ${extraclass}`} id="about">
       <Container>
@@ -95,13 +99,49 @@ const AboutOne: React.FC<AboutOneProps> = ({ extraclass }) => {
                   {/* <TextAnimation text={titleTwo} animationType='left' /> */}
                 </h3>
               </div>
-              <p
+              <div className="about-one__top__content">
+                <p
+                  className={`about-one__top__text wow fadeInUp ${
+                    !isExpanded ? "text-trimmed" : ""
+                  }`}
+                  data-wow-duration="1500ms"
+                  data-wow-delay="300ms"
+                  style={{
+                    marginBottom: "0px",
+                    display: "-webkit-box",
+                    WebkitLineClamp: isExpanded ? "unset" : 4,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    transition: "all 0.3s ease",
+                  }}
+                >
+                  {description}
+                </p>
+
+                <button
+                  onClick={toggleReadMore}
+                  className="read-more-btn"
+                  style={{
+                    color: "#ff7c5b", // Use your brand color
+                    background: "none",
+                    border: "none",
+                    fontWeight: "bold",
+                    cursor: "pointer",
+                    padding: "0",
+                    marginBottom: "15px",
+                    // marginTop: "10px",
+                  }}
+                >
+                  {isExpanded ? "Show Less" : "Show More"}
+                </button>
+              </div>
+              {/* <p
                 className="about-one__top__text wow fadeInUp"
                 data-wow-duration="1500ms"
                 data-wow-delay="300ms"
               >
                 {description}
-              </p>
+              </p> */}
               <div className="about-one__feature">
                 <Row className="gutter-y-20">
                   <Col

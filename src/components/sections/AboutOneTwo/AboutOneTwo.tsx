@@ -29,31 +29,31 @@ const AboutOneTwo: React.FC = () => {
   });
 
   return (
-    <section className='about-one section-space about-one--two'>
+    <section className="about-one section-space about-one--two">
       <Container>
-        <Row className=' gutter-y-40'>
+        <Row className=" gutter-y-40">
           {/* Left Column with Images */}
           <Col lg={6}>
             <div
-              className='about-one__thumb wow fadeInLeft'
-              data-wow-duration='1500ms'
-              data-wow-delay='300ms'
+              className="about-one__thumb wow fadeInLeft"
+              data-wow-duration="1500ms"
+              data-wow-delay="300ms"
             >
-              <div className='about-one__thumb__item'>
-                <DynamicImage src={images.mainImage} alt='about image' />
+              <div className="about-one__thumb__item">
+                <DynamicImage src={images.mainImage} alt="about image" />
               </div>
-              <div className='about-one__thumb__item-small'>
-                <DynamicImage src={images.smallImage} alt='about small image' />
+              <div className="about-one__thumb__item-small">
+                <DynamicImage src={images.smallImage} alt="about small image" />
               </div>
-              <div className='about-one__thumb__funfact'>
-                <div className='about-one__thumb__funfact__icon'>
-                  <i className='icon-icon-4'></i>
+              <div className="about-one__thumb__funfact">
+                <div className="about-one__thumb__funfact__icon">
+                  <i className="icon-icon-4"></i>
                 </div>
                 <div
-                  className='about-one__thumb__funfact__content count-box'
+                  className="about-one__thumb__funfact__content count-box"
                   ref={ref}
                 >
-                  <h2 className='about-one__thumb__funfact__count'>
+                  <h2 className="about-one__thumb__funfact__count">
                     {inView && (
                       <CountUp
                         start={0}
@@ -63,7 +63,7 @@ const AboutOneTwo: React.FC = () => {
                     )}
                     <span>+</span>
                   </h2>
-                  <p className='about-one__thumb__funfact__text'>
+                  <p className="about-one__thumb__funfact__text">
                     Satisfied Travelers
                   </p>
                 </div>
@@ -73,56 +73,56 @@ const AboutOneTwo: React.FC = () => {
 
           {/* Right Column with Content */}
           <Col lg={6}>
-            <div className='about-one__right'>
-              <div className='sec-title'>
-                <h6 className='sec-title__tagline bw-split-in-right'>
+            <div className="about-one__right">
+              <div className="sec-title">
+                <h6 className="sec-title__tagline bw-split-in-right">
                   {title}
                 </h6>
-                <h3 className='sec-title__title bw-split-in-left'>
+                <h3 className="sec-title__title bw-split-in-left">
                   {subTitle}
                 </h3>
               </div>
               <p
-                className='about-one__top__text wow fadeInUp'
-                data-wow-duration='1500ms'
-                data-wow-delay='300ms'
+                className="about-one__top__text wow fadeInUp"
+                data-wow-duration="1500ms"
+                data-wow-delay="300ms"
               >
                 {description}
               </p>
               <div
-                className='about-one__feature wow fadeInUp'
-                data-wow-duration='1500ms'
-                data-wow-delay='300ms'
+                className="about-one__feature wow fadeInUp"
+                data-wow-duration="1500ms"
+                data-wow-delay="300ms"
               >
-                <ul className='about-one__feature-list'>
+                <ul className="about-one__feature-list">
                   {features.map((feature, index) => (
                     <li key={index}>
-                      <i className='icon-mark-1'></i> {feature}
+                      <i className="icon-mark-1"></i> {feature}
                     </li>
                   ))}
                 </ul>
               </div>
               <div
-                className='about-one__button wow fadeInUp'
-                data-wow-duration='1500ms'
-                data-wow-delay='300ms'
+                className="about-one__button wow fadeInUp"
+                data-wow-duration="1500ms"
+                data-wow-delay="300ms"
               >
                 <Link
-                  to='blog-details-left'
-                  className='gotur-btn gotur-btn--base'
+                  to="blog-details-left"
+                  className="gotur-btn gotur-btn--base"
                 >
                   Discover More{" "}
-                  <span className='icon'>
-                    <i className='icon-right'></i>
+                  <span className="icon">
+                    <i className="icon-right"></i>
                   </span>
                 </Link>
-                <div className='about-one__button__call'>
-                  <div className='about-one__button__call__icon'>
-                    <i className='icon-telephone'></i>
+                <div className="about-one__button__call">
+                  <div className="about-one__button__call__icon">
+                    <i className="icon-telephone"></i>
                   </div>
-                  <div className='about-one__button__call__content'>
+                  <div className="about-one__button__call__content">
                     <span>Call Us Now</span>
-                    <Link to='tel:+208-555-0112'>+208-555-0112</Link>
+                    <Link to="tel:+91 9711010190">+91 9711010190</Link>
                   </div>
                 </div>
               </div>
@@ -130,8 +130,8 @@ const AboutOneTwo: React.FC = () => {
           </Col>
         </Row>
       </Container>
-      <div className='about-one__element-two'>
-        <DynamicImage src={images.elementImage} alt='about element image' />
+      <div className="about-one__element-two">
+        <DynamicImage src={images.elementImage} alt="about element image" />
       </div>
     </section>
   );

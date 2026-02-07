@@ -105,7 +105,7 @@ const HeaderTwo: React.FC = () => {
               </div>
               <div className="main-header__call__content">
                 <span className="main-header__call__subtitle">Call Us Now</span>
-                <Link to="tel:+208-555-0112">+208-555-0112</Link>
+                <Link to="tel:+91 9711010190">+91 9711010190</Link>
               </div>
             </div>
             <div

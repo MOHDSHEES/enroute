@@ -16,10 +16,10 @@ export const mainSliderData = {
   sliderItems: {
     id: 1,
     tagLine: "Welcome to Enroute",
-    title: "We Take Care Of Tour Trip",
+    title: "Not Just Trips. Stories You’ll Tell Forever",
     titleSpan: "Of Tour Trip",
     subtitle: "Plan your perfect vacation with us",
-    text: "Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris nullam the Lorem ipsum dolor sit amet consectetur adipiscing elit.",
+    text: "Experience unforgettable journeys that bring people together, spark adventure, and turn every trip into a story worth telling.",
     thumbImage: thumbImage,
     videoId: "0MuL8fd3pb8",
     buttonLink: "/contact",

@@ -1,8 +1,7 @@
 // components/Preloader.tsx
 
-
 import React, { useEffect, useState } from "react";
-import loaderImage from "@/assets/images/loader.png"; // Adjust path as needed
+import loaderImage from "@/assets/images/loader.webp"; // Adjust path as needed
 
 const Preloader: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);

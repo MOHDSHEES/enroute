@@ -41,7 +41,7 @@ export const footerOneData: FooterDataType = {
   shape1,
   shape2,
   contact: {
-    email: "info@company.com",
+    email: "enroutetrips04@gmail.com",
     phone: "+91 123 654 900",
     hours: "Hours: Mon-Fri: 8am – 7pm",
   },
