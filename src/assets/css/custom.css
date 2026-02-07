@@ -213,3 +213,12 @@
 .read-more-btn:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 375px) {
+  .listing-card-four__meta {
+    margin-bottom: -30px;
+  }
+  .listing-card-four__meta a {
+    font-size: 10px;
+  }
+}
