@@ -48,8 +48,8 @@ const HeaderOne: React.FC = () => {
             style={{ width: "160px" }}
           >
             <Link to="/">
-              {/* <img src='./images/logo-dark.webp' alt='A dinosaur' width={160} /> */}
-              <DynamicImage src="logo-dark.webp" alt="gotur" />
+              {/* <img src='./images/logo-dark.png' alt='A dinosaur' width={160} /> */}
+              <DynamicImage src="logo-dark.png" alt="gotur" />
             </Link>
           </div>
 

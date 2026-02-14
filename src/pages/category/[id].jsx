@@ -125,7 +125,7 @@ const CategoryDetail = ({ params }) => {
 
   // Capture ID: Try params.id first, then fallback to the wildcard params['*']
   const routeId = params.id || params["*"];
-  console.log(routeId);
+  // console.log(routeId);
 
   useEffect(() => {
     setIsClient(true);

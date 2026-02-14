@@ -120,10 +120,15 @@ const FooterOne: React.FC = () => {
                 <p className="footer-widget__about-text">{data.about.text}</p>
                 <div className="footer-widget__social">
                   {data.about.socials.map((social: SocialLink, idx) => (
-                    <Link key={idx} to={social.link}>
+                    <a
+                      key={idx}
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className={social.icon} aria-hidden="true"></i>
                       <span className="sr-only">{social.label}</span>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>

@@ -15,8 +15,12 @@ const BlogPage: React.FC<PageProps> = () => {
     <Layout>
       <TopbarOne />
       <HeaderInner />
-      <HeaderInnerCloned/>
-      <PageHeader title='Contact us' subTitle='Contact us' />
+      <HeaderInnerCloned />
+      <PageHeader
+        title="Contact us"
+        subTitle="Contact us"
+        img="https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771072772/contatc_us_vfmbtw.webp"
+      />
       <ContactTop />
       <ContactPage />
       <FooterOne />
@@ -26,4 +30,6 @@ const BlogPage: React.FC<PageProps> = () => {
 
 export default BlogPage;
 
-export const Head: HeadFC = () => <title>Contact || Gotur || Travel & Tour GatsbyJS Template</title>;
+export const Head: HeadFC = () => (
+  <title>Contact || Gotur || Travel & Tour GatsbyJS Template</title>
+);

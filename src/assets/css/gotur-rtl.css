@@ -10108,6 +10108,7 @@ a + .listing-card-four__btns__hover {
 .tour-listing-details__ture-plan .tour-listing-details__title {
   margin-bottom: 30px;
 }
+
 .tour-listing-details__ture-plan .accordion-title__text::before {
   content: "Day" counter(serviceNumber);
   counter-increment: serviceNumber;

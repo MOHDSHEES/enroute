@@ -1,128 +1,102 @@
-
 import React from "react";
 
 import { blogDetail } from "@/data/blogDetailsData";
 import { Col, Container, Row } from "react-bootstrap";
 import BlogSidebar from "@/components/common/BlogSidebar/BlogSidebar";
-import {Link} from "gatsby";
+import { Link } from "gatsby";
 import { useLocation } from "@reach/router";
 import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
-interface BlogDetail {
-  title: string;
-  date: string;
-  image: string;
-  content: string[];
-  tags: string[];
-  comments: Comment[];
-  blogImages: string[];
-  blockQuote: string;
-  quoteImage: string;
-  comment: string;
-  author: string;
-  category: string;
-  link: string;
-  day: string;
-  month: string;
-}
 
-// Interface for a comment
-interface Comment {
-  name: string;
-  date: string;
-  text: string;
-  avatar: string;
-}
+const BlogDetails = ({ blogData }) => {
+  console.log(blogData);
 
-const BlogDetails: React.FC = () => {
   const {
     title,
-    date,
+
     image,
     content,
+    main_para,
 
-    tags,
-    comments,
     blogImages,
-    blockQuote,
-    quoteImage,
-    comment,
+
     author,
     category,
-    link,
+
     day,
     month,
-  }: BlogDetail = blogDetail;
-  const location = useLocation();
-  const pathname = location.pathname;
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  } = blogData;
+  // const location = useLocation();
+  // const pathname = location.pathname;
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
+  //   const formData = new FormData(e.currentTarget);
+  //   const data = {};
 
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
+  //   formData.forEach((value, key) => {
+  //     data[key] = value.toString();
+  //   });
 
-    console.log("Form Submitted:", data);
-  };
+  //   console.log("Form Submitted:", data);
+  // };
   return (
-    <section className='blog-details-page section-space'>
+    <section className="blog-details-page section-space">
       <Container>
-        <Row className=' justify-content-center'>
-          {pathname === "/blog-details-left/" ? (
+        <Row className=" justify-content-center">
+          {/* {pathname === "/blog-details-left/" ? (
             <Col lg={4}>
               <BlogSidebar />
             </Col>
-          ) : null}
+          ) : null} */}
           <Col lg={8}>
-            <div className='blog-details'>
+            <div className="blog-details">
               {/* Blog Image */}
               <div
-                className='blog-details-card wow fadeInUp'
-                data-wow-delay='300ms'
-                data-wow-duration='1500ms'
+                className="blog-details-card wow fadeInUp"
+                data-wow-delay="300ms"
+                data-wow-duration="1500ms"
               >
-                <div className='blog-details-card__image'>
-                  <DynamicImage src={image} alt='Blog Image' />
-                  <div className='blog-details-card__date'>
-                    <span className='blog-details-card__date__day'>{day}</span>
-                    <span className='blog-details-card__date__month'>
+                <div className="blog-details-card__image">
+                  <img src={image} alt="Blog Image" />
+                  {/* <DynamicImage src={image} alt="Blog Image" /> */}
+                  <div className="blog-details-card__date">
+                    <span className="blog-details-card__date__day">{day}</span>
+                    <span className="blog-details-card__date__month">
                       {month}
                     </span>
                   </div>
                 </div>
 
                 {/* Blog Content */}
-                <div className='blog-details-card__content'>
+                <div className="blog-details-card__content">
                   <ul
-                    className='list-unstyled blog-details-card__meta wow fadeInUp'
-                    data-wow-delay='300ms'
-                    data-wow-duration='1500ms'
+                    className="list-unstyled blog-details-card__meta wow fadeInUp"
+                    data-wow-delay="300ms"
+                    data-wow-duration="1500ms"
                   >
                     <li>
-                      <Link to={link}>
-                        <span className='blog-card__meta__icon'>
-                          <i className='icon-user'></i>
+                      <Link to="#">
+                        <span className="blog-card__meta__icon">
+                          <i className="icon-user"></i>
                         </span>
                         By {author}
                       </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       {" "}
                       <Link to={link}>
                         {" "}
-                        <span className='blog-details-card__meta__icon'>
+                        <span className="blog-details-card__meta__icon">
                           {" "}
-                          <i className='icon-massage'></i>
+                          <i className="icon-massage"></i>
                         </span>{" "}
                         {comment} Comments{" "}
                       </Link>
-                    </li>
+                    </li> */}
                     <li>
-                      <Link to={link}>
-                        <span className='blog-card__meta__icon'>
-                          <i className='icon-price-tag'></i>
+                      <Link to="#">
+                        <span className="blog-card__meta__icon">
+                          <i className="icon-price-tag"></i>
                         </span>
                         {category}
                       </Link>
@@ -130,123 +104,148 @@ const BlogDetails: React.FC = () => {
                   </ul>
 
                   <h3
-                    className='blog-details-card__title wow fadeInUp'
-                    data-wow-delay='300ms'
-                    data-wow-duration='1500ms'
+                    className="blog-details-card__title wow fadeInUp"
+                    data-wow-delay="300ms"
+                    data-wow-duration="1500ms"
+                    style={{ marginTop: "15px" }}
                   >
                     {title}
                   </h3>
 
                   {/* Blog Content */}
-                  <div className='blog-details-card__content__inner'>
-                    {content.map((text, index) => (
-                      <p
-                        key={index}
-                        className='blog-details-card__text wow fadeInUp'
-                        data-wow-delay='300ms'
-                        data-wow-duration='1500ms'
-                      >
-                        {text}
-                      </p>
+                  <div className="blog-details-card__content__inner">
+                    <p
+                      className="blog-details-card__text wow fadeInUp"
+                      data-wow-delay="300ms"
+                      data-wow-duration="1500ms"
+                      style={{ marginBottom: "30px" }}
+                    >
+                      {main_para}
+                    </p>
+                    {content.map((item, index) => (
+                      <div key={index}>
+                        {item.heading && (
+                          <h4
+                            className="blog-details-card__sub-title"
+                            style={{
+                              fontWeight: "700",
+                              fontSize: "22px",
+                              marginTop: "30px",
+                              marginBottom: "15px",
+                              color: "var(--gotur-black, #1a1a1a)",
+                            }}
+                          >
+                            {item.heading}
+                          </h4>
+                        )}
+                        <p
+                          // key={index}
+                          className="blog-details-card__text wow fadeInUp"
+                          data-wow-delay="300ms"
+                          data-wow-duration="1500ms"
+                        >
+                          {item.text}
+                        </p>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
               {/* Blog Images in Row */}
-              <div className='blog-details__inner'>
-                <div className='row gutter-y-30'>
+              {/* <div className="blog-details__inner">
+                <div className="row gutter-y-30">
                   {blogImages.map((imgSrc, index) => (
                     <div
-                      className='col-md-6 wow fadeInLeft'
+                      className="col-md-6 wow fadeInLeft"
                       data-wow-delay={`${100 * index}ms`}
                       key={index}
                     >
-                      <div className='blog-details__inner__image'>
-                        <DynamicImage src={imgSrc} alt='Blog Details' />
+                      <div className="blog-details__inner__image">
+                        <DynamicImage src={imgSrc} alt="Blog Details" />
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className='blog-details__inner__content'>
+                <div className="blog-details__inner__content">
                   <p
-                    className='blog-details__inner__text wow fadeInUp animated'
-                    data-wow-delay='300ms'
-                    data-wow-duration='1500ms'
+                    className="blog-details__inner__text wow fadeInUp animated"
+                    data-wow-delay="300ms"
+                    data-wow-duration="1500ms"
                   >
                     {content[1]}
                   </p>
                   <blockquote
-                    className='blog-details__inner__text-one wow fadeInUp animated'
-                    data-wow-delay='300ms'
-                    data-wow-duration='1500ms'
+                    className="blog-details__inner__text-one wow fadeInUp animated"
+                    data-wow-delay="300ms"
+                    data-wow-duration="1500ms"
                   >
                     {blockQuote}
                     <DynamicImage
                       // className='blog-details__inner__image'
                       src={quoteImage}
-                      alt=''
+                      alt=""
                     />
                   </blockquote>
                   <p
-                    className='blog-details__inner__text wow fadeInUp animated'
-                    data-wow-delay='300ms'
-                    data-wow-duration='1500ms'
+                    className="blog-details__inner__text wow fadeInUp animated"
+                    data-wow-delay="300ms"
+                    data-wow-duration="1500ms"
                   >
                     {content[0]}
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Blog Tags */}
-              <div className='blog-details__meta'>
-                <div
-                  className='blog-details__categories wow fadeInUp'
-                  data-wow-delay='300ms'
-                  data-wow-duration='1500ms'
+              {/* <div className="blog-details__meta"> */}
+              {/* <div
+                  className="blog-details__categories wow fadeInUp"
+                  data-wow-delay="300ms"
+                  data-wow-duration="1500ms"
                 >
-                  <h4 className='blog-details__meta__title'>Tags:</h4>
-                  <div className='blog-details__categories__box'>
+                  <h4 className="blog-details__meta__title">Tags:</h4>
+                  <div className="blog-details__categories__box">
                     {tags.map((tag, index) => (
                       <Link
-                        to='#'
+                        to="#"
                         key={index}
-                        className='blog-details__categories__btn gotur-btn'
+                        className="blog-details__categories__btn gotur-btn"
                       >
                         {tag}
                       </Link>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
-                {/* Social Share Links */}
-                <div
-                  className='blog-details__social wow fadeInUp'
-                  data-wow-delay='300ms'
-                  data-wow-duration='1500ms'
+              {/* Social Share Links */}
+              {/* <div
+                  className="blog-details__social wow fadeInUp"
+                  data-wow-delay="300ms"
+                  data-wow-duration="1500ms"
                 >
-                  <h4 className='blog-details__meta__title'>
+                  <h4 className="blog-details__meta__title">
                     Share with friends:
                   </h4>
-                  <div className='blog-details__social__box'>
-                    <Link to='https://facebook.com'>
-                      <i className='icon-facebook' aria-hidden='true'></i>
+                  <div className="blog-details__social__box">
+                    <Link to="https://facebook.com">
+                      <i className="icon-facebook" aria-hidden="true"></i>
                     </Link>
-                    <Link to='https://twitter.com'>
-                      <i className='icon-twitter' aria-hidden='true'></i>
+                    <Link to="https://twitter.com">
+                      <i className="icon-twitter" aria-hidden="true"></i>
                     </Link>
-                    <Link to='https://instagram.com'>
-                      <i className='icon-linkedin' aria-hidden='true'></i>
+                    <Link to="https://instagram.com">
+                      <i className="icon-linkedin" aria-hidden="true"></i>
                     </Link>
-                    <Link to='https://youtube.com'>
-                      <i className='icon-youtube' aria-hidden='true'></i>
+                    <Link to="https://youtube.com">
+                      <i className="icon-youtube" aria-hidden="true"></i>
                     </Link>
                   </div>
-                </div>
-              </div>
+                </div> */}
+            </div>
 
-              {/* Comments */}
-              <div className='comments-one'>
+            {/* Comments */}
+            {/* <div className='comments-one'>
                 <h3 className='comments-one__title'>Comments</h3>
                 <ul className='list-unstyled comments-one__list'>
                   {comments.map((comment, index) => (
@@ -283,10 +282,10 @@ const BlogDetails: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
 
-              {/* Comment Form */}
-              <div className='comments-form'>
+            {/* Comment Form */}
+            {/* <div className='comments-form'>
                 <h3 className='comments-form__title'>Leave a Comment</h3>
                 <form
                   className='comments-form__form contact-form-validated form-one'
@@ -342,14 +341,14 @@ const BlogDetails: React.FC = () => {
                     </div>
                   </div>
                 </form>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </Col>
-          {pathname === "/blog-details-right/" ? (
+          {/* {pathname === "/blog-details-right/" ? (
             <Col lg={4}>
               <BlogSidebar />
             </Col>
-          ) : null}
+          ) : null} */}
         </Row>
       </Container>
     </section>

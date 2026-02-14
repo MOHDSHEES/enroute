@@ -50,7 +50,7 @@ const HeaderFourCloned: React.FC = () => {
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">
-              <DynamicImage src="logo-light.webp" alt="gotur" />
+              <DynamicImage src="logo-light.png" alt="gotur" />
             </Link>
           </div>
           <nav className="main-header__nav main-menu">

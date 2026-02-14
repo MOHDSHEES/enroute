@@ -63,7 +63,7 @@ const Drawer: React.FC = () => {
         {/* LOGO */}
         <div className="logo-box">
           <Link to="/" onClick={handleNavClick}>
-            <DynamicImage src="logo-light.webp" alt="logo" />
+            <DynamicImage src="logo-light.png" alt="logo" />
           </Link>
         </div>
 
@@ -148,13 +148,13 @@ const Drawer: React.FC = () => {
         {/* CONTACT */}
         <ul className="mobile-nav__contact list-unstyled">
           <li>
-            <Link to="mailto:needhelp@gotur.com" onClick={handleNavClick}>
-              needhelp@gotur.com
+            <Link to="mailto:enroutetrips04@gmail.com" onClick={handleNavClick}>
+              enroutetrips04@gmail.com
             </Link>
           </li>
           <li>
             <Link to="tel:+9156980036420" onClick={handleNavClick}>
-              +91 5698 0036 420
+              +91 9711010190
             </Link>
           </li>
         </ul>
@@ -414,13 +414,13 @@ export default Drawer;
 //             <span className="mobile-nav__contact__icon">
 //               <i className="fa fa-envelope"></i>
 //             </span>
-//             <Link to="mailto:needhelp@gotur.com">needhelp@gotur.com</Link>
+//             <Link to="mailto:enroutetrips04@gmail.com">enroutetrips04@gmail.com</Link>
 //           </li>
 //           <li>
 //             <span className="mobile-nav__contact__icon">
 //               <i className="fa fa-phone-alt"></i>
 //             </span>
-//             <Link to="tel:+9156980036420">+91 5698 0036 420</Link>
+//             <Link to="tel:+9156980036420">+91 9711010190</Link>
 //           </li>
 //         </ul>
 

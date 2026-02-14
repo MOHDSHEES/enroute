@@ -69,7 +69,7 @@ const DrawerTwo: React.FC = () => {
         {/* LOGO */}
         <div className="logo-box">
           <Link to="/" aria-label="logo image" onClick={handleNavClick}>
-            <DynamicImage src="logo-light.webp" alt="logo" />
+            <DynamicImage src="logo-light.png" alt="logo" />
           </Link>
         </div>
 
@@ -167,8 +167,8 @@ const DrawerTwo: React.FC = () => {
             <span className="mobile-nav__contact__icon">
               <i className="fa fa-envelope"></i>
             </span>
-            <Link to="mailto:needhelp@gotur.com" onClick={handleNavClick}>
-              needhelp@gotur.com
+            <Link to="mailto:enroutetrips04@gmail.com" onClick={handleNavClick}>
+              enroutetrips04@gmail.com
             </Link>
           </li>
           <li>
@@ -176,25 +176,31 @@ const DrawerTwo: React.FC = () => {
               <i className="fa fa-phone-alt"></i>
             </span>
             <Link to="tel:+9156980036420" onClick={handleNavClick}>
-              +91 5698 0036 420
+              +91 9711010190
             </Link>
           </li>
         </ul>
 
         {/* SOCIAL */}
         <div className="mobile-nav__social">
-          <Link to="https://facebook.com" onClick={handleNavClick}>
+          <Link
+            to="https://www.facebook.com/share/183X9hh6ag/?mibextid=wwXIfr"
+            onClick={handleNavClick}
+          >
             <i className="icon-facebook"></i>
           </Link>
-          <Link to="https://twitter.com" onClick={handleNavClick}>
+          {/* <Link to="https://twitter.com" onClick={handleNavClick}>
             <i className="icon-twitter"></i>
-          </Link>
-          <Link to="https://instagram.com" onClick={handleNavClick}>
+          </Link> */}
+          <Link
+            to="https://www.instagram.com/enroute_tripss?igsh=bjEzNmtpMDk3Z2wy&utm_source=qr"
+            onClick={handleNavClick}
+          >
             <i className="icon-linkedin"></i>
           </Link>
-          <Link to="https://youtube.com" onClick={handleNavClick}>
+          {/* <Link to="https://youtube.com" onClick={handleNavClick}>
             <i className="icon-youtube"></i>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
@@ -387,13 +393,13 @@ export default DrawerTwo;
 //             <span className="mobile-nav__contact__icon">
 //               <i className="fa fa-envelope"></i>
 //             </span>
-//             <Link to="mailto:needhelp@gotur.com">needhelp@gotur.com</Link>
+//             <Link to="mailto:enroutetrips04@gmail.com">enroutetrips04@gmail.com</Link>
 //           </li>
 //           <li>
 //             <span className="mobile-nav__contact__icon">
 //               <i className="fa fa-phone-alt"></i>
 //             </span>
-//             <Link to="tel:+9156980036420">+91 5698 0036 420</Link>
+//             <Link to="tel:+9156980036420">+91 9711010190</Link>
 //           </li>
 //         </ul>
 

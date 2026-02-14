@@ -13,31 +13,38 @@ export const blogTwoInfo = {
 
   blogData: [
     {
-      title: "The 5 best things about Touristy",
-      image: blogImg1,
-      day: "19",
-      month: "Feb",
-      author: "Admin",
-      category: "Travel",
-      link: "/blog-details-right",
+      id: "997258",
+      title:
+        "The Ultimate Packing Guide: How to travel for 10 days with just a carry-on.",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771076910/packing_1_nx7hit.webp",
+      day: "06",
+      month: "Oct",
+      author: "Enroute Team",
+      category: "",
+      link: "/blog/997258",
     },
     {
-      title: "Web Vitals Tools Boost Your to Sen",
-      image: blogImg2,
+      id: "442189",
+      title: "The Seasonal Guide to Trekking: Choosing Your Perfect Window",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771076910/trekking_1_lhhpht.webp",
       day: "20",
-      month: "Mar",
-      author: "Admin",
-      category: "Travel",
-      link: "/blog-details-right",
+      month: "Dec",
+      author: "Enroute Team",
+      category: "Trekking",
+      link: "/blog/442189",
     },
     {
-      title: "Get Best Advertiser In Your Side Pocket",
-      image: blogImg3,
-      day: "28",
-      month: "Feb",
-      author: "Admin",
+      id: "772145",
+      title: "Best Time to Visit Jaisalmer: Complete Seasonal Guide 2026",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771076909/jaisakamer_1_qjejqw.webp",
+      day: "02",
+      month: "Oct",
+      author: "Enroute Team",
       category: "Travel",
-      link: "/blog-details-right",
+      link: "/blog/772145",
     },
   ],
 };

@@ -84,226 +84,99 @@ const FeatureTwo = ({ trending, extraClass, id }) => {
           <div className="feature-package__inner">
             <div className="feature-package__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme owl-loaded owl-drag">
               <PhotoSwipeGallery>
-                <TinySlider
-                  settings={{
-                    items: 1,
-                    gutter: 30,
-                    loop: false,
-                    smartSpeed: 700,
-                    nav: false,
-                    dots: false,
-                    autoplay: false,
-                    controlsContainer: ".feature-package__bottom__nav",
-                    responsive: {
-                      0: { items: 1 },
-                      576: { items: 2 },
-                      768: { items: 2 },
-                      992: { items: 3 },
-                      1199: { items: 3 },
-                      1500: { items: 4 },
-                    },
-                  }}
-                >
-                  {trending.map((item) => (
-                    <div className="item" key={item.id}>
-                      <div
-                        className="listing-card-four wow fadeInUp"
-                        data-wow-duration="1500ms"
-                      >
+                {trending && trending.length > 0 && (
+                  <TinySlider
+                    settings={{
+                      items: 1,
+                      gutter: 30,
+                      loop: false,
+                      smartSpeed: 700,
+                      nav: false,
+                      dots: false,
+                      autoplay: false,
+                      controlsContainer: ".feature-package__bottom__nav",
+                      responsive: {
+                        0: { items: 1 },
+                        576: { items: 2 },
+                        768: { items: 2 },
+                        992: { items: 3 },
+                        1199: { items: 4 },
+                        1500: { items: 4 },
+                      },
+                    }}
+                  >
+                    {trending.map((item) => (
+                      <div className="item" key={item.id}>
                         <div
-                          className="listing-card-four__image"
-                          style={imageContainerStyle}
-                          // style={{
-                          //   width: "438px",
-                          //   height: "300px",
-                          //   overflow: "hidden",
-                          //   position: "relative",
-                          // }}
+                          className="listing-card-four wow fadeInUp"
+                          data-wow-duration="1500ms"
                         >
-                          <img
-                            src={
-                              item.thumbnail_url ? item.thumbnail_url : image1
-                            }
-                            alt={item.name}
-                            style={imageStyle}
-                            // style={{
-                            //   width: "100%",
-                            //   height: "100%",
-                            //   objectFit: "contain", // Ensures no stretching
-                            //   display: "block",
-                            // }}
-                          />
-
-                          <ul className="listing-card-four__meta list-unstyled">
-                            <li>
-                              <Link to={`/trip/details/${item.id}`}>
-                                {" "}
-                                <span className="listing-card-four__meta__icon">
-                                  {" "}
-                                  <i className=""></i>{" "}
-                                </span>
-                                Age {item.age_group}
-                              </Link>
-                            </li>
-                            <li>
-                              <Link to={`/trip/details/${item.id}`}>
-                                {" "}
-                                <span className="listing-card-four__meta__icon">
-                                  {" "}
-                                  <i className={"calendar"}></i>{" "}
-                                </span>
-                                {item.duration_days} Days,{" "}
-                                {item.duration_nights} Nights
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="listing-card-four__content">
-                          {/* <div className='listing-card-four__rating'>
-                            <span>({item.reviews} Review)</span>
-                            {[...Array(item.rating)].map((_, i) => (
-                              <i key={i} className='icon-star'></i>
-                            ))}
-                          </div> */}
-                          <h3
-                            className="listing-card-four__title"
-                            style={{ marginTop: "24px" }}
+                          <div
+                            className="listing-card-four__image"
+                            style={imageContainerStyle}
                           >
-                            <Link to={`/trip/details/${item.id}`}>
-                              {item.name}
-                            </Link>
-                          </h3>
+                            <img
+                              src={
+                                item.thumbnail_url ? item.thumbnail_url : image1
+                              }
+                              alt={item.name}
+                              style={imageStyle}
+                            />
 
-                          <div className="listing-card-four__content__btn">
-                            <div className="listing-card-four__price">
-                              <span className="listing-card-four__price__sub">
-                                Starting from
-                              </span>
-                              <span className="listing-card-four__price__number">
-                                {item.starting_price}
-                              </span>
-                            </div>
-                            <Link
-                              to={`/trip/details/${item.id}`}
-                              className="listing-card-four__btn gotur-btn"
-                            >
-                              Book Now{" "}
-                              <span className="icon">
-                                <i className="icon-right"></i>{" "}
-                              </span>
-                            </Link>
+                            <ul className="listing-card-four__meta list-unstyled">
+                              <li>
+                                <Link to={`/trip/details/${item.id}`}>
+                                  <span className="listing-card-four__meta__icon">
+                                    <i className="fa fa-user"></i>
+                                  </span>
+                                  Age {item.age_group}
+                                </Link>
+                              </li>
+                              <li>
+                                <Link to={`/trip/details/${item.id}`}>
+                                  <span className="listing-card-four__meta__icon">
+                                    <i className="calendar"></i>
+                                  </span>
+                                  {item.duration_days} D /{" "}
+                                  {item.duration_nights}N
+                                </Link>
+                              </li>
+                            </ul>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                  {/* {featurePackageData.items.map((item) => (
-                    <div className="item" key={item.id}>
-                      <div
-                        className="listing-card-four wow fadeInUp"
-                        data-wow-duration="1500ms"
-                      >
-                        <div className="listing-card-four__image">
-                          <img src={item.image} alt={item.title} />
-                          <div className="listing-card-four__btn-group">
-                            {item.discount && (
-                              <div className="listing-card-four__discount">
-                                -{item.discount}% off
+
+                          <div className="listing-card-four__content">
+                            {/* Title fixed to 2 lines via CSS class */}
+                            <h3 className="listing-card-four__title">
+                              <Link to={`/trip/details/${item.id}`}>
+                                {item.name}
+                              </Link>
+                            </h3>
+
+                            <div className="listing-card-four__content__btn">
+                              <div className="listing-card-four__price">
+                                <span className="listing-card-four__price__sub">
+                                  Starting from
+                                </span>
+                                <span className="listing-card-four__price__number">
+                                  {item.starting_price}
+                                </span>
                               </div>
-                            )}
-                            <div className="listing-card-four__featured">
-                              Featured
-                            </div>
-                          </div>
-                          <div className="listing-card-four__btns">
-                            <Link to="#">
-                              <i className="far fa-heart"></i>
-                            </Link>
-                            <div className="listing-card-four__btns__hover">
-                              <Item
-                                original={item.image}
-                                thumbnail={item.image}
-                                width="351"
-                                height="246"
-                              >
-                                {({ ref, open }) => (
-                                  <a
-                                    className="listing-card-four__popup card__popup"
-                                    ref={ref}
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      open(e);
-                                    }}
-                                    href="#"
-                                  >
-                                    <span className="icon-image"></span>
-                                  </a>
-                                )}
-                              </Item>
-
                               <a
-                                className="video-popup"
-                                href="#"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  setOpen(true);
-                                  setVideoId(item.videoId);
-                                }}
+                                href={`/trip/details/${item.id}`}
+                                className="listing-card-four__btn gotur-btn"
                               >
-                                <span className="icon-video"></span>
+                                Book Now{" "}
+                                <span className="icon">
+                                  <i className="icon-right"></i>
+                                </span>
                               </a>
                             </div>
                           </div>
-                          <ul className="listing-card-four__meta list-unstyled">
-                            {item.meta.map((meta) => (
-                              <li key={meta.id}>
-                                <Link to="tour-listing-details-2">
-                                  {" "}
-                                  <span className="listing-card-four__meta__icon">
-                                    {" "}
-                                    <i className={meta.icon}></i>{" "}
-                                  </span>
-                                  {meta.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div className="listing-card-four__content">
-                          <div className="listing-card-four__rating">
-                            <span>({item.reviews} Review)</span>
-                            {[...Array(item.rating)].map((_, i) => (
-                              <i key={i} className="icon-star"></i>
-                            ))}
-                          </div>
-                          <h3 className="listing-card-four__title">
-                            <Link to={item.link}>{item.title}</Link>
-                          </h3>
-
-                          <div className="listing-card-four__content__btn">
-                            <div className="listing-card-four__price">
-                              <span className="listing-card-four__price__sub">
-                                Per Day
-                              </span>
-                              <span className="listing-card-four__price__number">
-                                {item.price}
-                              </span>
-                            </div>
-                            <Link
-                              to={item.link}
-                              className="listing-card-four__btn gotur-btn"
-                            >
-                              Book Now{" "}
-                              <span className="icon">
-                                <i className="icon-right"></i>{" "}
-                              </span>
-                            </Link>
-                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))} */}
-                </TinySlider>
+                    ))}
+                  </TinySlider>
+                )}
               </PhotoSwipeGallery>
             </div>
           </div>

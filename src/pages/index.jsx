@@ -16,6 +16,7 @@ import BlogTwoTwo from "@/components/sections/BlogTwoTwo/BlogTwoTwo";
 import ThemeProvider from "@/provider/ThemeProvider";
 import DestinationsTwoTwo from "@/components/sections/DestinationsTwoTwo/DestinationsTwoTwo";
 import { supabase } from "@/lib/supabase";
+import About from "../components/about";
 // import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
 
 const HomeThreePage = () => {
@@ -29,11 +30,8 @@ const HomeThreePage = () => {
     const fetchData = async () => {
       try {
         const [categoriesRes, trendingRes] = await Promise.all([
-          supabase
-            .from("categories")
-            .select("*")
-            .eq("is_active", "True")
-            .limit(6),
+          supabase.from("categories").select("*").eq("is_active", "True"),
+
           supabase
             .from("trips")
             .select(
@@ -56,7 +54,7 @@ const HomeThreePage = () => {
 
     fetchData();
   }, []);
-  console.log(trending);
+  // console.log(trending);
 
   return (
     <ThemeProvider>
@@ -67,11 +65,7 @@ const HomeThreePage = () => {
         {/* <HeaderInnerCloned /> */}
 
         <MainSliderThree />
-        <AboutOne />
-        {/* Categories Section */}
         <DestinationsTwoTwo categories={categories} />
-
-        {/* Trending Section */}
         {trending.length > 0 && (
           <FeatureTwo
             trending={trending}
@@ -80,6 +74,12 @@ const HomeThreePage = () => {
           />
         )}
         <OfferTwo />
+        <About />
+        {/* <AboutOne /> */}
+        {/* Categories Section */}
+
+        {/* Trending Section */}
+
         <DestinationCarouselTwo />
         <TestimonialsTwo />
         <BlogTwoTwo />

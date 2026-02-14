@@ -51,7 +51,7 @@ const HeaderInnerSingleCloned: React.FC = () => {
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">
-              <DynamicImage src="logo-dark.webp" alt="gotur" />
+              <DynamicImage src="logo-dark.png" alt="gotur" />
             </Link>
           </div>
 

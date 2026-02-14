@@ -4,8 +4,8 @@ import homeShowcase1 from "@/assets/images/home-showcase/home-showcase-1.jpg";
 import homeShowcase2 from "@/assets/images/home-showcase/home-showcase-2.jpg";
 import homeShowcase3 from "@/assets/images/home-showcase/home-showcase-3.jpg";
 import homeShowcase4 from "@/assets/images/home-showcase/home-showcase-4.jpg";
-import logoDark from "@/assets/images/logo-dark.webp";
-import logoLight from "@/assets/images/logo-light.webp";
+import logoDark from "@/assets/images/logo-dark.png";
+import logoLight from "@/assets/images/logo-light.png";
 
 export const headerData = {
   logo: {

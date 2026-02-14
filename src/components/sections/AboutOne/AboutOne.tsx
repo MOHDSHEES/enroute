@@ -99,7 +99,7 @@ const AboutOne: React.FC<AboutOneProps> = ({ extraclass }) => {
                   {/* <TextAnimation text={titleTwo} animationType='left' /> */}
                 </h3>
               </div>
-              <div className="about-one__top__content">
+              {/* <div className="about-one__top__content">
                 <p
                   className={`about-one__top__text wow fadeInUp ${
                     !isExpanded ? "text-trimmed" : ""
@@ -134,7 +134,7 @@ const AboutOne: React.FC<AboutOneProps> = ({ extraclass }) => {
                 >
                   {isExpanded ? "Show Less" : "Show More"}
                 </button>
-              </div>
+              </div> */}
               {/* <p
                 className="about-one__top__text wow fadeInUp"
                 data-wow-duration="1500ms"

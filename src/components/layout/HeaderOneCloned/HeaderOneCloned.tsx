@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 
 import { navItems, headerOneNavItems } from "@/data/navItems"; // Import the navItems data
 import DemoPages from "@/components/common/DemoPages/DemoPages";
-// import main_logo from "@/assets/images/logo-dark.webp";
+// import main_logo from "@/assets/images/logo-dark.png";
 import useStore from "@/store/useStore";
 import useScrollUp from "@/hooks/useScrollUp";
 import { useLocation } from "@reach/router";
@@ -51,7 +51,7 @@ const HeaderOneCloned: React.FC = () => {
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">
-              <DynamicImage src="logo-dark.webp" alt="gotur" />
+              <DynamicImage src="logo-dark.png" alt="gotur" />
             </Link>
           </div>
 

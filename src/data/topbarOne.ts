@@ -38,22 +38,22 @@ export const topbarOne = {
     {
       platform: "Facebook",
       iconClass: "icon-facebook",
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/share/183X9hh6ag/?mibextid=wwXIfr",
     },
-    {
-      platform: "Twitter",
-      iconClass: "icon-twitter",
-      href: "https://twitter.com",
-    },
+    // {
+    //   platform: "Twitter",
+    //   iconClass: "icon-twitter",
+    //   href: "https://twitter.com",
+    // },
     {
       platform: "LinkedIn",
       iconClass: "icon-linkedin",
-      href: "https://instagram.com", // original HTML had LinkedIn icon but Instagram URL
+      href: "https://www.instagram.com/enroute_tripss?igsh=bjEzNmtpMDk3Z2wy&utm_source=qr", // original HTML had LinkedIn icon but Instagram URL
     },
-    {
-      platform: "Youtube",
-      iconClass: "icon-youtube",
-      href: "https://youtube.com",
-    },
+    // {
+    //   platform: "Youtube",
+    //   iconClass: "icon-youtube",
+    //   href: "https://youtube.com",
+    // },
   ],
 };

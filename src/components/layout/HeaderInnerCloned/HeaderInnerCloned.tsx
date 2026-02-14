@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link } from "gatsby"; // Assuming we're using Next.js for routing
 import { navItems, headerTwoNavItems } from "@/data/navItems"; // Import the navItems data
 import DemoPages from "@/components/common/DemoPages/DemoPages";
-// import main_logo from "@/assets/images/logo-dark.webp";
+// import main_logo from "@/assets/images/logo-dark.png";
 
 import useStore from "@/store/useStore";
 import useScrollUp from "@/hooks/useScrollUp";
@@ -53,7 +53,7 @@ const HeaderInnerCloned: React.FC = () => {
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">
-              <DynamicImage src="logo-dark.webp" alt="gotur" />
+              <DynamicImage src="logo-dark.png" alt="gotur" />
             </Link>
           </div>
 

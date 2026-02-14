@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { Link } from "gatsby";
 import { navItems } from "@/data/navItems";
 import DemoPages from "@/components/common/DemoPages/DemoPages";
-import main_logo from "@/assets/images/logo-light.webp";
+// import main_logo from "@/assets/images/logo-light.webp";
 
 import useStore from "@/store/useStore";
 import { Container } from "react-bootstrap";
@@ -48,7 +48,7 @@ const HeaderFour: React.FC = () => {
           <div className="main-header__logo logo-retina">
             <Link to="/">
               {" "}
-              <DynamicImage src="logo-light.webp" alt="gotur" />
+              <DynamicImage src="logo-light.png" alt="gotur" />
             </Link>
           </div>
           <nav className="main-header__nav main-menu">

@@ -381,8 +381,38 @@ const TourListingTwoDetails = ({ tourData }) => {
                   <h4 className="tour-listing-details__title">
                     {overviewTitle}
                   </h4>
-
                   <p
+                    className={`tour-listing-details__text ${
+                      showMore ? "expanded" : "clamped"
+                    }`}
+                  >
+                    {/* If showMore is false, slice the text to 250 characters */}
+                    {!showMore && tourData?.description?.length > 250
+                      ? `${tourData.description.substring(0, 250)}...`
+                      : tourData?.description}
+                  </p>
+
+                  {/* Only show the button if the description is longer than 250 characters */}
+                  {tourData?.description?.length > 250 && (
+                    <button
+                      type="button"
+                      className="read-more-btn"
+                      onClick={() => setShowMore(!showMore)}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "var(--gotur-base, #ef5c27)", // Use your theme color
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                        padding: "0",
+                        marginTop: "10px",
+                      }}
+                    >
+                      {showMore ? "Read Less" : "Read More"}
+                    </button>
+                  )}
+                </div>
+                {/* <p
                     className={`tour-listing-details__text ${
                       showMore ? "expanded" : "clamped"
                     }`}
@@ -397,7 +427,7 @@ const TourListingTwoDetails = ({ tourData }) => {
                   >
                     {showMore ? "Read Less" : "Read More"}
                   </button>
-                </div>
+                </div> */}
 
                 {/* <div
                   className="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp animated"
@@ -426,21 +456,34 @@ const TourListingTwoDetails = ({ tourData }) => {
                             </div>
                           </Accordion.Header>
                           <Accordion.Body>
-                            <div className="accordion-content">
-                              <div className="inner">
-                                {iti.description?.map((desc, idx) => {
-                                  return (
-                                    <p
-                                      eventKey={idx.toString()}
-                                      key={idx}
-                                      className="inner__text"
-                                    >
-                                      {desc}
-                                    </p>
-                                  );
-                                })}
-                              </div>
-                            </div>
+                            {iti.description?.map((desc, idx) => {
+                              return (
+                                <ul
+                                  eventKey={idx.toString()}
+                                  key={idx}
+                                  className="accordion-inner-list list-unstyled"
+                                >
+                                  <div className="accordion-content">
+                                    <div className="inner">
+                                      {/* {iti.description?.map((desc, idx) => {
+                                  return ( */}
+                                      <li className="accordion-inner-item">
+                                        <p
+                                          // eventKey={idx.toString()}
+                                          // key={idx}
+                                          className="inner__text"
+                                        >
+                                          {desc}
+                                          {/* {desc} */}
+                                        </p>
+                                      </li>
+                                      {/* );
+                                })} */}
+                                    </div>
+                                  </div>
+                                </ul>
+                              );
+                            })}
                           </Accordion.Body>
                         </Accordion.Item>
                       ))}
@@ -456,7 +499,10 @@ const TourListingTwoDetails = ({ tourData }) => {
                   <h4 className="tour-listing-details__title">
                     Inclusion / Exclusion
                   </h4>
-                  <div className="tour-listing-details__amenities__inner">
+                  <div
+                    className="tour-listing-details__amenities__inner"
+                    style={{ alignItems: "flex-start" }}
+                  >
                     <ul className="tour-listing-details__amenities__list">
                       {tourData?.inclusion?.map((amenity, index) => (
                         <li key={index}>
@@ -482,7 +528,7 @@ const TourListingTwoDetails = ({ tourData }) => {
                   >
                     <h4 className="tour-listing-details__title">Notes</h4>
 
-                    <p
+                    {/* <p
                       className={`tour-listing-details__text ${
                         showMoreNotes ? "expanded" : "clamped"
                       }`}
@@ -496,6 +542,28 @@ const TourListingTwoDetails = ({ tourData }) => {
                     >
                       {showMoreNotes ? "Read Less" : "Read More"}
                     </button>
+                  </div> */}
+                    <p
+                      className={`tour-listing-details__text ${
+                        showMoreNotes ? "expanded" : "clamped"
+                      }`}
+                    >
+                      {/* Truncate text only if showMoreNotes is false and text is long */}
+                      {!showMoreNotes && tourData?.note?.length > 150
+                        ? `${tourData.note.substring(0, 150)}...`
+                        : tourData?.note}
+                    </p>
+
+                    {/* Only render the button if the note is long enough to require it */}
+                    {tourData?.note?.length > 150 && (
+                      <button
+                        type="button"
+                        className="read-more-btn"
+                        onClick={() => setShowMoreNotes(!showMoreNotes)}
+                      >
+                        {showMoreNotes ? "Read Less" : "Read More"}
+                      </button>
+                    )}
                   </div>
                 )}
                 {/* Highlight List Section */}

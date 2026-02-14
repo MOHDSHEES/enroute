@@ -1,4 +1,4 @@
-let logo = "logo-light.webp";
+let logo = "logo-light.png";
 let cardImage = "shapes/footer-card-1-1.png";
 let shape1 = "shapes/footer-shape-1-1.png";
 let shape2 = "shapes/footer-shape-1-2.png";
@@ -42,24 +42,24 @@ export const footerOneData: FooterDataType = {
   shape2,
   contact: {
     email: "enroutetrips04@gmail.com",
-    phone: "+91 123 654 900",
-    hours: "Hours: Mon-Fri: 8am – 7pm",
+    phone: "+91 9711010190",
+    hours: "Hours: Open Daily: 10am – 10pm",
   },
   about: {
-    text: "available, but the majority have suffered alteration in some form by injected humour, or",
+    text: "At Enroute Trips, we believe travel is more than just visiting places - it’s about collecting moments, building connections, and discovering new sides of yourself.",
     socials: [
       {
         icon: "icon-facebook",
-        link: "https://facebook.com",
+        link: "https://www.facebook.com/share/183X9hh6ag/?mibextid=wwXIfr",
         label: "Facebook",
       },
-      { icon: "fab fa-twitter", link: "https://twitter.com", label: "Twitter" },
+      // { icon: "fab fa-twitter", link: "https://twitter.com", label: "Twitter" },
       {
         icon: "fab fa-instagram",
-        link: "https://instagram.com",
+        link: "https://www.instagram.com/enroute_tripss?igsh=bjEzNmtpMDk3Z2wy&utm_source=qr",
         label: "Instagram",
       },
-      { icon: "icon-youtube", link: "https://youtube.com", label: "Youtube" },
+      // { icon: "icon-youtube", link: "https://youtube.com", label: "Youtube" },
     ],
   },
   destinations: [

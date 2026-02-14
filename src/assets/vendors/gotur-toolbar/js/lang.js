@@ -36,7 +36,7 @@ $(".language-feature button").on("click", function (e) {
   deleteAllCookies();
 
   let thmLogo = "images/nav-logo.png";
-  let dLogo = "images/logo-dark.webp";
+  let dLogo = "images/logo-dark.png";
   let fLogo = "images/nav-logo.png";
   let favicon = "images/favicon.png";
   let error404 = "images/icons/404-image.png";

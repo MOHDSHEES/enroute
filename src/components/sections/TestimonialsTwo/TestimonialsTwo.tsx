@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
-
-import { Carousel, Container, Row, Col, Button } from "react-bootstrap";
-
+import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import testimonialsTwoData from "@/data/testimonialsTwoData";
 import TextAnimation from "@/components/common/AnimatedText/TextAnimation";
 import loadable from "@loadable/component";
 import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
 });
@@ -29,6 +28,66 @@ interface TestimonialsData {
   testimonials: Testimonial[];
 }
 
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const charLimit = 150;
+  const needsReadMore = testimonial.text.length > charLimit;
+
+  return (
+    <div
+      className="testimonials-two-card wow fadeInUp"
+      data-wow-duration="1500ms"
+    >
+      <div className="testimonials-two-card__inner">
+        <div className="testimonials-two-card__top">
+          <img src={testimonial.image} alt={testimonial.name} />
+        </div>
+        <div className="testimonials-two-card__content">
+          <div className="testimonials-two-card__author">
+            <h4 className="testimonials-two-card__author__name">
+              {testimonial.name}
+            </h4>
+            <p className="testimonials-two-card__author__dec">
+              {testimonial.position}
+            </p>
+          </div>
+          <p className="testimonials-two-card__text">
+            {isExpanded || !needsReadMore
+              ? testimonial.text
+              : `${testimonial.text.substring(0, charLimit)}...`}
+            {needsReadMore && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="read-more-btn"
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "var(--gotur-base, #4A90E2)",
+                  fontWeight: "600",
+                  marginLeft: "5px",
+                  cursor: "pointer",
+                }}
+              >
+                {isExpanded ? "Show Less" : "Read More"}
+              </button>
+            )}
+          </p>
+        </div>
+        <div className="testimonials-two-card__star">
+          <div className="testimonials-two-card__star__item">
+            {[...Array(5)].map((_, i) => (
+              <i key={i} className="icon-star"></i>
+            ))}
+          </div>
+        </div>
+        <div className="testimonials-two-card__quite">
+          <i className="icon-straight-quotes"></i>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const TestimonialsTwo = () => {
   const {
     tagline,
@@ -37,30 +96,27 @@ const TestimonialsTwo = () => {
     testimonials,
     elementImage,
   }: TestimonialsData = testimonialsTwoData;
+
   const settings = {
     items: 1,
     gutter: 30,
-    loop: false,
+    loop: true, // Changed to true for smooth autoplay
     nav: false,
-    autoplay: false,
+    autoplay: true, // Enable Autoplay
+    autoplayTimeout: 5000, // Duration in ms (5 seconds)
+    autoplayButtonOutput: false, // Prevents "Stop" button from appearing
+    autoplayHoverPause: true, // Pause when user hovers over a review
     controls: true,
     mouseDrag: true,
     controlsContainer: ".testimonials-two__bottom__nav",
     responsive: {
-      0: {
-        items: 1,
-      },
-      768: {
-        items: 2,
-      },
-      992: {
-        items: 2,
-      },
-      1199: {
-        items: 2,
-      },
+      0: { items: 1 },
+      768: { items: 2 },
+      992: { items: 2 },
+      1199: { items: 2 },
     },
   };
+
   return (
     <section className="testimonials-two" id="testimonials">
       <Container fluid>
@@ -73,7 +129,6 @@ const TestimonialsTwo = () => {
                 </h6>
                 <h3 className="sec-title__title">
                   <TextAnimation text={title} animationType="left" />
-
                   <span>
                     <TextAnimation text={highlighted} animationType="left" />
                   </span>
@@ -97,45 +152,7 @@ const TestimonialsTwo = () => {
             >
               {testimonials.map((testimonial: Testimonial) => (
                 <div key={testimonial.id}>
-                  <div
-                    className="testimonials-two-card  wow fadeInUp"
-                    data-wow-duration="1500ms"
-                    data-wow-delay="00ms"
-                  >
-                    <div className="testimonials-two-card__inner">
-                      <div className="testimonials-two-card__top">
-                        <img
-                          src={testimonial.image}
-                          alt="testiomonials author"
-                        />
-                      </div>
-                      <div className="testimonials-two-card__content">
-                        <div className="testimonials-two-card__author">
-                          <h4 className="testimonials-two-card__author__name">
-                            {testimonial.name}
-                          </h4>
-                          <p className="testimonials-two-card__author__dec">
-                            {testimonial.position}
-                          </p>
-                        </div>
-                        <p className="testimonials-two-card__text">
-                          {testimonial.text}
-                        </p>
-                      </div>
-                      <div className="testimonials-two-card__star">
-                        <div className="testimonials-two-card__star__item">
-                          <i className="icon-star"></i>
-                          <i className="icon-star"></i>
-                          <i className="icon-star"></i>
-                          <i className="icon-star"></i>
-                          <i className="icon-star"></i>
-                        </div>
-                      </div>
-                      <div className="testimonials-two-card__quite">
-                        <i className="icon-straight-quotes"></i>
-                      </div>
-                    </div>
-                  </div>
+                  <TestimonialCard testimonial={testimonial} />
                 </div>
               ))}
             </TinySlider>
@@ -153,3 +170,158 @@ const TestimonialsTwo = () => {
 };
 
 export default TestimonialsTwo;
+// "use client";
+
+// import React from "react";
+
+// import { Carousel, Container, Row, Col, Button } from "react-bootstrap";
+
+// import testimonialsTwoData from "@/data/testimonialsTwoData";
+// import TextAnimation from "@/components/common/AnimatedText/TextAnimation";
+// import loadable from "@loadable/component";
+// import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+// const TinySlider = loadable(() => import("tiny-slider-react"), {
+//   ssr: false,
+// });
+
+// interface Testimonial {
+//   id: number;
+//   name: string;
+//   position?: string;
+//   text: string;
+//   image: string;
+//   stars?: number;
+// }
+
+// interface TestimonialsData {
+//   tagline: string;
+//   title: string;
+//   highlighted: string;
+//   elementImage: string;
+//   testimonials: Testimonial[];
+// }
+
+// const TestimonialsTwo = () => {
+//   const {
+//     tagline,
+//     title,
+//     highlighted,
+//     testimonials,
+//     elementImage,
+//   }: TestimonialsData = testimonialsTwoData;
+//   const settings = {
+//     items: 1,
+//     gutter: 30,
+//     loop: false,
+//     nav: false,
+//     autoplay: false,
+//     controls: true,
+//     mouseDrag: true,
+//     controlsContainer: ".testimonials-two__bottom__nav",
+//     responsive: {
+//       0: {
+//         items: 1,
+//       },
+//       768: {
+//         items: 2,
+//       },
+//       992: {
+//         items: 2,
+//       },
+//       1199: {
+//         items: 2,
+//       },
+//     },
+//   };
+//   return (
+//     <section className="testimonials-two" id="testimonials">
+//       <Container fluid>
+//         <Row className="align-items-center gy-4">
+//           <Col xl={4} xxl={3}>
+//             <div className="mb-4">
+//               <div className="sec-title">
+//                 <h6 className="sec-title__tagline">
+//                   <TextAnimation text={tagline} animationType="right" />
+//                 </h6>
+//                 <h3 className="sec-title__title">
+//                   <TextAnimation text={title} animationType="left" />
+
+//                   <span>
+//                     <TextAnimation text={highlighted} animationType="left" />
+//                   </span>
+//                 </h3>
+//               </div>
+//               <div className="testimonials-two__bottom__nav">
+//                 <button className="testimonials-two__carousel__nav--left">
+//                   <span className="icon-arrow-left"></span>
+//                 </button>
+//                 <button className="testimonials-two__carousel__nav--right">
+//                   <span className="icon-arrow-right"></span>
+//                 </button>
+//               </div>
+//             </div>
+//           </Col>
+
+//           <Col xl={8} xxl={9}>
+//             <TinySlider
+//               settings={settings}
+//               className="testimonials-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+//             >
+//               {testimonials.map((testimonial: Testimonial) => (
+//                 <div key={testimonial.id}>
+//                   <div
+//                     className="testimonials-two-card  wow fadeInUp"
+//                     data-wow-duration="1500ms"
+//                     data-wow-delay="00ms"
+//                   >
+//                     <div className="testimonials-two-card__inner">
+//                       <div className="testimonials-two-card__top">
+//                         <img
+//                           src={testimonial.image}
+//                           alt="testiomonials author"
+//                         />
+//                       </div>
+//                       <div className="testimonials-two-card__content">
+//                         <div className="testimonials-two-card__author">
+//                           <h4 className="testimonials-two-card__author__name">
+//                             {testimonial.name}
+//                           </h4>
+//                           <p className="testimonials-two-card__author__dec">
+//                             {testimonial.position}
+//                           </p>
+//                         </div>
+//                         <p className="testimonials-two-card__text">
+//                           {testimonial.text}
+//                         </p>
+//                       </div>
+//                       <div className="testimonials-two-card__star">
+//                         <div className="testimonials-two-card__star__item">
+//                           <i className="icon-star"></i>
+//                           <i className="icon-star"></i>
+//                           <i className="icon-star"></i>
+//                           <i className="icon-star"></i>
+//                           <i className="icon-star"></i>
+//                         </div>
+//                       </div>
+//                       <div className="testimonials-two-card__quite">
+//                         <i className="icon-straight-quotes"></i>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               ))}
+//             </TinySlider>
+//           </Col>
+//         </Row>
+//       </Container>
+//       <div
+//         className="testimonials-two__element"
+//         style={{ width: "165px", height: "241px" }}
+//       >
+//         <DynamicImage src={elementImage} alt="" />
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default TestimonialsTwo;
