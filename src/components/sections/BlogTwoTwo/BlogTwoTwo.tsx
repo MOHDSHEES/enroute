@@ -44,7 +44,7 @@ const BlogTwoTwo = () => {
                 </h3>
               </div>
             </Col>
-            <Col lg={4}>
+            {/* <Col lg={4}>
               <div className="blog-two__top__btn">
                 <Link to={link} className="gotur-btn gotur-btn--base">
                   {linkLabel}{" "}
@@ -53,7 +53,7 @@ const BlogTwoTwo = () => {
                   </span>
                 </Link>
               </div>
-            </Col>
+            </Col> */}
           </Row>
         </div>
 
