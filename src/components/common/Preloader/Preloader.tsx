@@ -1,7 +1,7 @@
 // components/Preloader.tsx
 
 import React, { useEffect, useState } from "react";
-import loaderImage from "@/assets/images/loader.png"; // Adjust path as needed
+// import loaderImage from "@/assets/images/loader.png"; // Adjust path as needed
 
 const Preloader: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -18,7 +18,8 @@ const Preloader: React.FC = () => {
     <div className={`preloader ${loading ? "" : "preloader-hidden"}`}>
       <div
         className="preloader__image"
-        style={{ backgroundImage: `url(${loaderImage})` }}
+        style={{ backgroundImage: `url('/loader.png')` }}
+        // style={{ backgroundImage: `url(${loaderImage})` }}
       ></div>
     </div>
   );
