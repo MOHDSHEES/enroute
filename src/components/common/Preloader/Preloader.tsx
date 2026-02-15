@@ -18,7 +18,17 @@ const Preloader: React.FC = () => {
     <div className={`preloader ${loading ? "" : "preloader-hidden"}`}>
       <div
         className="preloader__image"
-        style={{ backgroundImage: `url('/loader.png')` }}
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771156639/Untitleddesign3-ezgif.com-loop-count_jlfl9c.gif')`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "contain",
+          maxWidth: "200px",
+          height: "100%",
+        }}
+        // style={{
+        //   backgroundImage: `url('/https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771156639/Untitleddesign3-ezgif.com-loop-count_jlfl9c.gif')`,
+        // }}
         // style={{ backgroundImage: `url(${loaderImage})` }}
       ></div>
     </div>

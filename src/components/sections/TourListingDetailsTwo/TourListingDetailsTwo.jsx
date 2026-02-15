@@ -1,244 +1,30 @@
 "use client";
 import React, { FormEvent, useState } from "react";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 
 import tourDetailsOneData, { mapEmbedUrl } from "@/data/tourDetailsOneData";
 import { Accordion, Col, Container } from "react-bootstrap";
-import VideoModal from "@/components/common/VideoModal/VideoModal";
+// import VideoModal from "@/components/common/VideoModal/VideoModal";
 import { Gallery as PhotoSwipeGallery, Item } from "react-photoswipe-gallery";
-import { contactFormFields } from "@/data/contactData";
+// import { contactFormFields } from "@/data/contactData";
 import dayjs from "dayjs";
-// import FullWidthCalendar from "../Calender/Calender";
-import Slider from "react-slick";
-// interface ContactFormField {
-//   name: string;
-//   label: string;
-//   placeholder: string;
-//   type: "text" | "email" | "textarea";
-// }
-// interface Item {
-//   id: number;
-//   image: string;
-//   title: string;
-//   link: string;
-//   price: string;
-//   rating: number;
-//   reviews: number;
-//   videoId: string;
-//   discount: string;
-//   meta: Metadata[];
-// }
-// interface Metadata {
-//   id: number;
-//   title: string;
-//   icon: string;
-// }
-// interface TourDetailsOneData {
-//   title: string;
-//   titleTwo: string;
-//   overview: string;
-//   reviews: number;
-//   location: string;
-//   activitiesType: string;
-//   traveler: number;
-//   activateDay: string;
-//   price: number;
-//   overviewTitle: string;
-//   topDestinations: string;
-//   sliderImages: string[];
-//   slider2Images: string[];
-//   highlightList: string[];
-//   amenities: string[];
-//   amenitiesTwo: string[];
-//   relatedTours: Item[];
-//   comments: Comment[];
-//   images: string[];
-//   faqs: { question: string; answer: string }[];
-// }
+import Card from "../../card";
 
-// interface Comment {
-//   name: string;
-//   date: string;
-//   text: string;
-//   avatar: string;
-// }
-const TourListingTwoDetails = ({ tourData }) => {
+const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
   console.log(tourData);
+  console.log(relatedTrips);
+
   const [showMore, setShowMore] = useState(false);
   const [showMoreNotes, setShowMoreNotes] = useState(false);
-  const [startDate, setStartDate] = useState();
-  const [startTime, setStartTime] = useState();
+  // const [startDate, setStartDate] = useState();
+  // const [startTime, setStartTime] = useState();
   const [isOpen, setOpen] = useState(false);
   const [videoId, setVideoId] = useState("");
-  const formFields = contactFormFields;
-  const {
-    title,
-    titleTwo,
-    overview,
-    overviewTitle,
-    reviews,
-    location,
-    activitiesType,
-    activateDay,
-    traveler,
-    price,
-    comments,
-    topDestinations,
-    relatedTours,
-    slider2Images,
-    amenities,
-    amenitiesTwo,
-    highlightList,
-    images,
-    faqs,
-  } = tourDetailsOneData;
-  const settings = {
-    className: "center",
-    centerMode: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    gutter: 30,
-    loop: false,
-    nav: false,
-    autoplay: false,
-    controls: false,
-    mouseDrag: true,
-    centerPadding: "230px",
+  // const formFields = contactFormFields;
+  const { overviewTitle, relatedTours } = tourDetailsOneData;
 
-    responsive: [
-      {
-        breakpoint: 1199,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          centerPadding: "230px",
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerPadding: "70px",
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerPadding: "100px",
-        },
-      },
-      {
-        breakpoint: 575,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "30px",
-        },
-      },
-    ],
-    //   responsive: [
-    //     { breakpoint:1199,
-    //       settings:{slidesToShow:3, centerPadding: "60px",}
-
-    //     },
-    //     { breakpoint:992,
-    //       settings:{slidesToShow:3,}
-
-    //     },
-    //     { breakpoint:768,
-    //       settings:{slidesToShow:2,}
-
-    //     },
-    //     { breakpoint:575,
-    //       settings:{slidesToShow:2,}
-
-    //     },
-
-    //      { breakpoint:0,
-    //       settings:{slidesToShow:1,}
-
-    //     },
-
-    //  ]
-  };
-
-  const [extraBooking, setExtraBooking] = useState({
-    perBooking: false,
-    perPerson: false,
-  });
-
-  // Optional: dynamic ticket message
-  const [ticketMessage, setTicketMessage] = useState(
-    "Please, Select Date First"
-  );
-
-  const handleCheckboxChange = (e) => {
-    const { id, checked } = e.target;
-    setExtraBooking((prev) => ({
-      ...prev,
-      perBooking: id === "check8" ? checked : prev.perBooking,
-      perPerson: id === "check9" ? checked : prev.perPerson,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!startDate || !startTime) {
-      alert("Please select both date and time.");
-      return;
-    }
-
-    const bookingData = {
-      date: startDate.toISOString(),
-      time: startTime.toISOString(),
-      extras: extraBooking,
-      tickets: ticketMessage,
-    };
-
-    console.log("Booking Submitted:", bookingData);
-
-    // You could send bookingData to your API here
-  };
-
-  const handleComment = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-    const data = {};
-
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    console.log("Form Submitted:", data);
-  };
   return (
     <>
-      {/* Carousel Section */}
-      {/* <div
-        className="tour-one section-space-top wow fadeInUp animated"
-        data-wow-duration="1500ms"
-        data-wow-delay="500ms"
-      >
-        <div className="tour-one__carousel tour-two__carousel gotur-owl__carousel owl-carousel owl-theme owl-loaded owl-drag">
-          <Slider {...settings}>
-            {slider2Images.map((img, idx) => (
-              <div key={idx}>
-                <div className="item">
-                  <div className="tour-one__item">
-                    <img src={img} alt="destination" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </div> */}
       <section className="tour-listing-details section-space-top section-space-bottom">
         {/* Destination Section */}
         <div
@@ -257,43 +43,7 @@ const TourListingTwoDetails = ({ tourData }) => {
                     {tourData.categories.name}
                   </p>
                 )}
-                {/* <div className='tour-listing-details__destination__revue'>
-                  <div className='tour-listing-details__destination__ratings-box'>
-                    <span>({reviews} Review)</span>
-                    {[...Array(5)].map((_, index) => (
-                      <i key={index} className='icon-star'></i>
-                    ))}
-                  </div>
-                  <div className='tour-listing-details__destination__posted'>
-                    <i className='icon-pin1'></i>
-                    <p className='tour-listing-details__destination__posted-text'>
-                      {location}
-                    </p>
-                  </div>
-                </div> */}
               </div>
-              {/* <div className="tour-listing-details__destination__right">
-                <a
-                  href="javascript:void(0)"
-                  className="tour-listing-details__destination__btn gotur-btn"
-                >
-                  Share <i className="icon-share"></i>
-                </a>
-                <div className="tour-listing-details__destination__social__list">
-                  <a href="https://twitter.com">
-                    <i className="fab fa-twitter" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://facebook.com">
-                    <i className="fab fa-facebook" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://pinterest.com">
-                    <i className="fab fa-pinterest-p" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://instagram.com">
-                    <i className="fab fa-instagram" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div> */}
             </div>
           </Container>
         </div>
@@ -370,10 +120,87 @@ const TourListingTwoDetails = ({ tourData }) => {
         </div>
 
         <Container>
-          <div className="row gutter-y-30">
+          <div className="row gutter-y-30 flex-column-reverse flex-lg-row">
             <div className="col-lg-8">
               <div className="tour-listing-details__content">
                 <div
+                  className="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp animated"
+                  data-wow-duration="1500ms"
+                  data-wow-delay="500ms"
+                >
+                  <h4 className="tour-listing-details__title">
+                    {overviewTitle}
+                  </h4>
+
+                  <div
+                    className={`tour-listing-details__text-container ${
+                      showMore ? "expanded" : "clamped"
+                    }`}
+                  >
+                    {(() => {
+                      const fullDescription = tourData?.description || "";
+                      const CHAR_LIMIT = 1000; // Threshold for showing the "Read More" button
+                      const isLongDescription =
+                        fullDescription.length > CHAR_LIMIT;
+
+                      // 1. If the content is short, show all paragraphs normally with no button
+                      if (!isLongDescription) {
+                        return fullDescription
+                          .split("\n")
+                          .filter((l) => l.trim() !== "")
+                          .map((para, i) => (
+                            <p
+                              key={i}
+                              className="tour-listing-details__text"
+                              style={{ marginBottom: "15px" }}
+                            >
+                              {para}
+                            </p>
+                          ));
+                      }
+
+                      // 2. If content is long, truncate the text to the character limit when clamped
+                      const textToDisplay = showMore
+                        ? fullDescription
+                        : `${fullDescription.substring(0, CHAR_LIMIT)}...`;
+
+                      return (
+                        <>
+                          {textToDisplay
+                            .split("\n")
+                            .filter((l) => l.trim() !== "")
+                            .map((para, i) => (
+                              <p
+                                key={i}
+                                className="tour-listing-details__text"
+                                style={{ marginBottom: "15px" }}
+                              >
+                                {para}
+                              </p>
+                            ))}
+
+                          <button
+                            type="button"
+                            className="read-more-btn"
+                            onClick={() => setShowMore(!showMore)}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              color: "var(--gotur-base, #ef5c27)",
+                              fontWeight: "bold",
+                              cursor: "pointer",
+                              padding: "0",
+                              marginTop: "5px",
+                            }}
+                          >
+                            {showMore ? "Read Less" : "Read More"}
+                          </button>
+                        </>
+                      );
+                    })()}
+                  </div>
+                </div>
+                {/* <div
                   className="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp animated"
                   data-wow-duration="1500ms"
                   data-wow-delay="500ms"
@@ -386,13 +213,13 @@ const TourListingTwoDetails = ({ tourData }) => {
                       showMore ? "expanded" : "clamped"
                     }`}
                   >
-                    {/* If showMore is false, slice the text to 250 characters */}
+                   
                     {!showMore && tourData?.description?.length > 250
                       ? `${tourData.description.substring(0, 250)}...`
                       : tourData?.description}
                   </p>
 
-                  {/* Only show the button if the description is longer than 250 characters */}
+                
                   {tourData?.description?.length > 250 && (
                     <button
                       type="button"
@@ -401,7 +228,7 @@ const TourListingTwoDetails = ({ tourData }) => {
                       style={{
                         background: "none",
                         border: "none",
-                        color: "var(--gotur-base, #ef5c27)", // Use your theme color
+                        color: "var(--gotur-base, #ef5c27)", 
                         fontWeight: "bold",
                         cursor: "pointer",
                         padding: "0",
@@ -411,82 +238,78 @@ const TourListingTwoDetails = ({ tourData }) => {
                       {showMore ? "Read Less" : "Read More"}
                     </button>
                   )}
-                </div>
-                {/* <p
-                    className={`tour-listing-details__text ${
-                      showMore ? "expanded" : "clamped"
-                    }`}
-                  >
-                    {tourData?.description}
-                  </p>
-
-                  <button
-                    type="button"
-                    className="read-more-btn"
-                    onClick={() => setShowMore(!showMore)}
-                  >
-                    {showMore ? "Read Less" : "Read More"}
-                  </button>
                 </div> */}
 
-                {/* <div
-                  className="tour-listing-details__content__item tour-listing-details__content__text wow fadeInUp animated"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="500ms"
-                >
-                  <h4 className="tour-listing-details__title">
-                    {overviewTitle}
-                  </h4>
-                  <p className="tour-listing-details__text">
-                    {tourData?.description}
-                  </p>
-                </div> */}
                 <div className="tour-listing-details__content__item tour-listing-details__ture-plan">
                   <h4 className="tour-listing-details__title">Tour Plan</h4>
                   <div className="faq-page__accordion faq-accordion gotur-accordion">
                     <Accordion defaultActiveKey="0">
-                      {tourData?.itineraries?.map((iti, idx) => (
-                        <Accordion.Item eventKey={idx.toString()} key={idx}>
-                          <Accordion.Header>
-                            <div className="accordion-title">
-                              <h4 className="accordion-title__text">
-                                : {iti.title}
-                                <span className="accordion-title__icon"></span>
-                              </h4>
-                            </div>
-                          </Accordion.Header>
-                          <Accordion.Body>
-                            {iti.description?.map((desc, idx) => {
-                              return (
-                                <ul
-                                  eventKey={idx.toString()}
-                                  key={idx}
-                                  className="accordion-inner-list list-unstyled"
-                                >
-                                  <div className="accordion-content">
-                                    <div className="inner">
-                                      {/* {iti.description?.map((desc, idx) => {
-                                  return ( */}
-                                      <li className="accordion-inner-item">
-                                        <p
-                                          // eventKey={idx.toString()}
-                                          // key={idx}
-                                          className="inner__text"
+                      {tourData?.itineraries
+                        // Sort by day_number ascending
+                        ?.sort((a, b) => a.day_number - b.day_number)
+                        ?.map((iti, idx) => (
+                          <Accordion.Item eventKey={idx.toString()} key={idx}>
+                            <Accordion.Header>
+                              <div className="accordion-title">
+                                <h4 className="accordion-title__text">
+                                  : {iti.title}
+                                  <span className="accordion-title__icon"></span>
+                                </h4>
+                              </div>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                              <div className="itinerary-details">
+                                {/* Description Section */}
+                                <ul className="accordion-inner-list list-unstyled">
+                                  {iti.description?.map((desc, idx) => {
+                                    return (
+                                      <div
+                                        eventKey={idx.toString()}
+                                        key={idx}
+                                        className="accordion-content"
+                                      >
+                                        <div
+                                          className="inner"
+                                          style={{ paddingBottom: "10px" }}
                                         >
-                                          {desc}
-                                          {/* {desc} */}
-                                        </p>
-                                      </li>
-                                      {/* );
+                                          {/* {iti.description?.map((desc, idx) => {
+                                  return ( */}
+                                          <li className="accordion-inner-item">
+                                            <p
+                                              // eventKey={idx.toString()}
+                                              // key={idx}
+                                              className="inner__text"
+                                            >
+                                              {desc}
+                                              {/* {desc} */}
+                                            </p>
+                                          </li>
+                                          {/* );
                                 })} */}
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </ul>
+                                {iti.meals && iti.meals.length > 0 && (
+                                  <div className="itinerary-meals-wrapper">
+                                    <div className="meal-header">
+                                      <i className="fas fa-utensils"></i>
+                                      <span>Included Meals</span>
+                                    </div>
+                                    <div className="meal-badges">
+                                      {iti.meals.map((meal, mIdx) => (
+                                        <span key={mIdx} className="meal-badge">
+                                          {meal}
+                                        </span>
+                                      ))}
                                     </div>
                                   </div>
-                                </ul>
-                              );
-                            })}
-                          </Accordion.Body>
-                        </Accordion.Item>
-                      ))}
+                                )}
+                              </div>
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        ))}
                     </Accordion>
                   </div>
                 </div>
@@ -503,17 +326,57 @@ const TourListingTwoDetails = ({ tourData }) => {
                     className="tour-listing-details__amenities__inner"
                     style={{ alignItems: "flex-start" }}
                   >
-                    <ul className="tour-listing-details__amenities__list">
+                    <ul
+                      className="tour-listing-details__amenities__list"
+                      style={{ listStyle: "none", padding: 0 }}
+                    >
                       {tourData?.inclusion?.map((amenity, index) => (
-                        <li key={index}>
-                          <i className="fas fa-check"></i> {amenity}
+                        <li
+                          key={index}
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start", // Keeps icon at the top if text is very long
+                            marginBottom: "8px",
+                          }}
+                        >
+                          <i
+                            className="fas fa-check"
+                            style={{
+                              marginRight: "10px",
+                              marginTop: "5px", // Adjust this to center the icon with the first line
+                              color: "var(--gotur-base, #4A90E2)", // Your theme color
+                              flexShrink: 0, // Prevents the icon from squishing
+                            }}
+                          ></i>
+                          <span>{amenity}</span>
                         </li>
                       ))}
                     </ul>
-                    <ul className="tour-listing-details__amenities__list tour-listing-details__amenities__list--two">
+                    <ul
+                      className="tour-listing-details__amenities__list tour-listing-details__amenities__list--two"
+                      style={{ listStyle: "none", padding: 0 }}
+                    >
                       {tourData?.exclusion?.map((amenity, index) => (
-                        <li key={index}>
-                          <i className="fas fa-times"></i> {amenity}
+                        <li
+                          key={index}
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start", // Icon stays at the top of the first line
+                            marginBottom: "8px",
+                          }}
+                        >
+                          <i
+                            className="fas fa-times"
+                            style={{
+                              marginRight: "10px",
+                              marginTop: "5px", // Aligns icon vertically with the first line of text
+                              color: "#e74c3c", // Standard red color for exclusions
+                              flexShrink: 0, // CRITICAL: Stops icon from squishing when text is long
+                              width: "16px", // Fixed width keeps all text columns perfectly aligned
+                              textAlign: "center",
+                            }}
+                          ></i>
+                          <span style={{ flex: 1 }}>{amenity}</span>
                         </li>
                       ))}
                     </ul>
@@ -521,49 +384,81 @@ const TourListingTwoDetails = ({ tourData }) => {
                 </div>
                 {/* Notes Section */}
                 {tourData?.note && (
-                  <div
-                    className="tour-listing-details__content__item tour-listing-details__list wow fadeInUp"
-                    data-wow-duration="1500ms"
-                    data-wow-delay="500ms"
-                  >
+                  <div className="tour-listing-details__content__item tour-listing-details__list wow fadeInUp">
                     <h4 className="tour-listing-details__title">Notes</h4>
 
-                    {/* <p
-                      className={`tour-listing-details__text ${
+                    <div
+                      className={`tour-listing-details__text-container ${
                         showMoreNotes ? "expanded" : "clamped"
                       }`}
                     >
-                      {tourData?.note}
-                    </p>
-                    <button
-                      type="button"
-                      className="read-more-btn"
-                      onClick={() => setShowMoreNotes(!showMoreNotes)}
-                    >
-                      {showMoreNotes ? "Read Less" : "Read More"}
-                    </button>
-                  </div> */}
-                    <p
-                      className={`tour-listing-details__text ${
-                        showMoreNotes ? "expanded" : "clamped"
-                      }`}
-                    >
-                      {/* Truncate text only if showMoreNotes is false and text is long */}
-                      {!showMoreNotes && tourData?.note?.length > 150
-                        ? `${tourData.note.substring(0, 150)}...`
-                        : tourData?.note}
-                    </p>
+                      {(() => {
+                        const fullText = tourData.note || "";
+                        const CHAR_LIMIT = 400; // Your "Master Gatekeeper" length
+                        const isLongContent = fullText.length > CHAR_LIMIT;
 
-                    {/* Only render the button if the note is long enough to require it */}
-                    {tourData?.note?.length > 150 && (
-                      <button
-                        type="button"
-                        className="read-more-btn"
-                        onClick={() => setShowMoreNotes(!showMoreNotes)}
-                      >
-                        {showMoreNotes ? "Read Less" : "Read More"}
-                      </button>
-                    )}
+                        // 1. If it's short content, just render it all normally
+                        if (!isLongContent) {
+                          return fullText
+                            .split("\n")
+                            .filter((l) => l.trim() !== "")
+                            .map((para, i) => (
+                              <p
+                                key={i}
+                                className="tour-listing-details__text"
+                                style={{
+                                  marginBottom: "10px",
+                                  lineHeight: "1.6",
+                                }}
+                              >
+                                {para}
+                              </p>
+                            ));
+                        }
+
+                        // 2. If it's long content, decide what to show based on the toggle state
+                        const textToDisplay = showMoreNotes
+                          ? fullText
+                          : `${fullText.substring(0, CHAR_LIMIT)}...`;
+
+                        return (
+                          <>
+                            {textToDisplay
+                              .split("\n")
+                              .filter((l) => l.trim() !== "")
+                              .map((para, i) => (
+                                <p
+                                  key={i}
+                                  className="tour-listing-details__text"
+                                  style={{
+                                    marginBottom: "10px",
+                                    lineHeight: "1.6",
+                                  }}
+                                >
+                                  {para}
+                                </p>
+                              ))}
+
+                            <button
+                              type="button"
+                              className="read-more-btn"
+                              onClick={() => setShowMoreNotes(!showMoreNotes)}
+                              style={{
+                                background: "none",
+                                border: "none",
+                                color: "var(--gotur-base, #ef5c27)",
+                                fontWeight: "bold",
+                                cursor: "pointer",
+                                padding: "0",
+                                marginTop: "5px",
+                              }}
+                            >
+                              {showMoreNotes ? "Read Less" : "Read More"}
+                            </button>
+                          </>
+                        );
+                      })()}
+                    </div>
                   </div>
                 )}
                 {/* Highlight List Section */}
@@ -576,43 +471,43 @@ const TourListingTwoDetails = ({ tourData }) => {
                     <h4 className="tour-listing-details__title">
                       Things To Pack
                     </h4>
-                    <ul className="tour-listing-details__content__list">
+                    <ul
+                      className="tour-listing-details__content__list"
+                      style={{ listStyle: "none", padding: 0 }}
+                    >
                       {tourData?.things_to_pack.map((item, index) => (
-                        <li key={index}>
-                          <i className="icon-check-star"></i> {item}
+                        <li
+                          key={index}
+                          style={{
+                            display: "flex",
+                            alignItems: "flex-start",
+                            marginBottom: "0px",
+                          }}
+                        >
+                          <i
+                            className="icon-check-star"
+                            style={{
+                              marginRight: "12px",
+                              marginTop: "4px", // Adjust based on your text size
+                              flexShrink: 0,
+                              color: "var(--gotur-base, #ef5c27)", // Your primary theme color
+                              fontSize: "18px", // Matches the icon size to the text
+                            }}
+                          ></i>
+                          <span
+                            style={{
+                              lineHeight: "1.5",
+                              display: "block",
+                            }}
+                          >
+                            {item}
+                          </span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
 
-                {/* Tour Amenities Section */}
-                {/* <div
-                  className="tour-listing-details__content__item tour-listing-details__amenities wow fadeInUp"
-                  data-wow-duration="1500ms"
-                  data-wow-delay="500ms"
-                >
-                  <h4 className="tour-listing-details__title">
-                    Inclusion / Exclusion
-                  </h4>
-                  <div className="tour-listing-details__amenities__inner">
-                    <ul className="tour-listing-details__amenities__list">
-                      {tourData?.inclusion?.map((amenity, index) => (
-                        <li key={index}>
-                          <i className="fas fa-check"></i> {amenity}
-                        </li>
-                      ))}
-                   
-                    </ul>
-                    <ul className="tour-listing-details__amenities__list tour-listing-details__amenities__list--two">
-                      {tourData?.exclusion?.map((amenity, index) => (
-                        <li key={index}>
-                          <i className="fas fa-times"></i> {amenity}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div> */}
                 <div
                   className="tour-listing-details__content__item tour-listing-details__thumb wow fadeInUp animated"
                   data-wow-duration="1500ms"
@@ -629,283 +524,28 @@ const TourListingTwoDetails = ({ tourData }) => {
                   </div>
                 </div>
 
-                {/* Tour Plan */}
-
-                {/* <div className="tour-listing-details__content__item tour-listing-details__ture-plan">
-                  <h4 className="tour-listing-details__title">Tour Plan</h4>
-                  <div className="faq-page__accordion faq-accordion gotur-accordion">
-                    <Accordion
-                      defaultActiveKey="0"
-
-                    >
-                      {tourData?.itineraries?.map((iti, idx) => (
-                        <Accordion.Item eventKey={idx.toString()} key={idx}>
-                          <Accordion.Header>
-                            <div className="accordion-title">
-                              <h4 className="accordion-title__text">
-                                : {iti.title}
-                                <span className="accordion-title__icon"></span>
-                              </h4>
-                            </div>
-                          </Accordion.Header>
-                          <Accordion.Body>
-                            <div className="accordion-content">
-                              <div className="inner">
-                                {iti.description?.map((desc, idx) => {
-                                  return (
-                                    <p
-                                      eventKey={idx.toString()}
-                                      key={idx}
-                                      className="inner__text"
-                                    >
-                                      {desc}
-                                    </p>
-                                  );
-                                })}
-
-                              </div>
-                            </div>
-                          </Accordion.Body>
-                        </Accordion.Item>
-                      ))}
-
-                    </Accordion>
-                  </div>
-                </div> */}
                 {/* Related Tours Section */}
-                <div className="tour-listing-details__content__item tour-listing-details__ture-list">
-                  <h4 className="tour-listing-details__title">
-                    Related Tour List
-                  </h4>
-                  <PhotoSwipeGallery>
-                    <div className="row">
-                      {relatedTours.map((item, index) => (
-                        <Col lg={6} md={6} key={index}>
-                          <div
-                            className="listing-card-four wow fadeInUp"
-                            data-wow-duration="1500ms"
-                          >
-                            <div className="listing-card-four__image">
-                              <img src={item.image} alt={item.title} />
-                              <div className="listing-card-four__btn-group">
-                                {item.discount && (
-                                  <div className="listing-card-four__discount">
-                                    -{item.discount}% off
-                                  </div>
-                                )}
-                                <div className="listing-card-four__featured">
-                                  Featured
-                                </div>
-                              </div>
-                              <div className="listing-card-four__btns">
-                                <a href="#">
-                                  <i className="far fa-heart"></i>
-                                </a>
-                                <div className="listing-card-four__btns__hover">
-                                  <Item
-                                    original={item.image}
-                                    thumbnail={item.image}
-                                    width="370"
-                                    height="257"
-                                  >
-                                    {({ ref, open }) => (
-                                      <a
-                                        className="listing-card-four__popup card__popup"
-                                        ref={ref}
-                                        onClick={open}
-                                      >
-                                        <span className="icon-image"></span>
-                                      </a>
-                                    )}
-                                  </Item>
-
-                                  <a
-                                    className="video-popup"
-                                    href="https://www.youtube.com/watch?v=0MuL8fd3pb8"
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      setOpen(true);
-                                      setVideoId(item.videoId);
-                                    }}
-                                  >
-                                    <span className="icon-video"></span>
-                                  </a>
-                                </div>
-                              </div>
-                              <ul className="listing-card-four__meta list-unstyled">
-                                {item.meta.map((meta) => (
-                                  <li>
-                                    <a href="tour-listing-details-2">
-                                      {" "}
-                                      <span className="listing-card-four__meta__icon">
-                                        {" "}
-                                        <i className={meta.icon}></i>{" "}
-                                      </span>
-                                      {meta.title}
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="listing-card-four__content">
-                              <div className="listing-card-four__rating">
-                                <span>({item.reviews} Review)</span>
-                                {[...Array(item.rating)].map((_, i) => (
-                                  <i key={i} className="icon-star"></i>
-                                ))}
-                              </div>
-                              <h3 className="listing-card-four__title">
-                                <a href={item.link}>{item.title}</a>
-                              </h3>
-
-                              <div className="listing-card-four__content__btn">
-                                <div className="listing-card-four__price">
-                                  <span className="listing-card-four__price__sub">
-                                    Per Day
-                                  </span>
-                                  <span className="listing-card-four__price__number">
-                                    {item.price}
-                                  </span>
-                                </div>
-                                <a
-                                  href={item.link}
-                                  className="listing-card-four__btn gotur-btn"
-                                >
-                                  Book Now{" "}
-                                  <span className="icon">
-                                    <i className="icon-right"></i>{" "}
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </Col>
-                      ))}
-                    </div>
-                  </PhotoSwipeGallery>
-                </div>
+                {relatedTrips && relatedTrips.length > 0 && (
+                  <div className="tour-listing-details__content__item tour-listing-details__ture-list">
+                    <h4 className="tour-listing-details__title">
+                      Related Tours
+                    </h4>
+                    <PhotoSwipeGallery>
+                      <div className="row">
+                        {relatedTrips.map((item, index) => (
+                          <Col lg={6} md={6} key={index}>
+                            <Card item={item} />
+                          </Col>
+                        ))}
+                      </div>
+                    </PhotoSwipeGallery>
+                  </div>
+                )}
                 <div
                   className="tour-listing-details__content__item tour-listing-details__calender wow fadeInUp animated"
                   data-wow-duration="1500ms"
                   data-wow-delay="500ms"
-                >
-                  {/* <h4
-                    className='tour-listing-details__title wow fadeInUp animated'
-                    data-wow-duration='1500ms'
-                    data-wow-delay='500ms'
-                  >
-                    Calendar Price
-                  </h4> */}
-                </div>
-                {/* Comments
-                <div className='tour-listing-details__content__item tour-listing-details__reviews'>
-                  <h3
-                    className='tour-listing-details__title wow fadeInUp animated '
-                    data-wow-duration='1500ms'
-                    data-wow-delay='500ms'
-                  >
-                    {comments.length} Reviews
-                  </h3>
-                  <ul className='list-unstyled product-details__comment__list'>
-                    {comments.map((comment, index) => (
-                      <li
-                        key={index}
-                        className='product-details__comment__card wow fadeInUp animated'
-                        data-wow-delay='100ms'
-                        data-wow-duration='1500ms'
-                      >
-                        <div className='product-details__comment__card__image'>
-                          <img src={comment.avatar} alt={comment.name} />
-                        </div>
-                        <div className='product-details__comment__card__content'>
-                          <div className='product-details__comment__card__top'>
-                            <div className='product-details__comment__card__info'>
-                              <h3 className='product-details__comment__card__title'>
-                                {comment.name}
-                              </h3>
-                              <p className='product-details__comment__card__date'>
-                                {comment.date}
-                              </p>
-                            </div>
-                            <div className='product-details__comment__card__star'>
-                              <span className='fa fa-star'></span>
-                              <span className='fa fa-star'></span>
-                              <span className='fa fa-star'></span>
-                              <span className='fa fa-star'></span>
-                              <span className='fa fa-star'></span>
-                            </div>
-                          </div>
-                          <p className='product-details__comment__card__text'>
-                            {comment.text}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
-
-                {/* <div className='tour-listing-details__content__item tour-listing-details__add-reviews'>
-                  <div className='contact-page__contact'>
-                    <h2 className='tour-listing-details__title wow fadeInUp animated'>
-                      Add a Review
-                    </h2>
-                    <div
-                      className='product-details__form-ratings wow fadeInUp animated'
-                      data-wow-duration='1500ms'
-                      data-wow-delay='500ms'
-                    >
-                      <p className='product-details__form-ratings__label'>
-                        Your Rating*
-                      </p>
-                      <span className='far fa-star'></span>
-                      <span className='far fa-star'></span>
-                      <span className='far fa-star'></span>
-                      <span className='far fa-star'></span>
-                      <span className='far fa-star'></span>
-                    </div>
-                    <form
-                      className='comments-form__form contact-form-validated product-details__form__form form-one wow fadeInUp animated'
-                      onSubmit={handleComment}
-                    >
-                      <div className='form-one__group'>
-                        {formFields.map((field, index) => (
-                          <div
-                            key={index}
-                            className={`form-one__control ${
-                              field.type === "textarea"
-                                ? "form-one__control--full"
-                                : ""
-                            }`}
-                          >
-                            <label htmlFor={field.name}>{field.label}</label>
-                            {field.type === "textarea" ? (
-                              <textarea
-                                name={field.name}
-                                id={field.name}
-                                placeholder={field.placeholder}
-                              ></textarea>
-                            ) : (
-                              <input
-                                type={field.type}
-                                name={field.name}
-                                id={field.name}
-                                placeholder={field.placeholder}
-                              />
-                            )}
-                          </div>
-                        ))}
-                        <div className='form-one__control form-one__control--full'>
-                          <button
-                            type='submit'
-                            className='gotur-btn gotur-btn--base'
-                          >
-                            Send Message <i className='icon-arrow-right'></i>
-                          </button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div> */}
+                ></div>
               </div>
             </div>
             <div className="col-lg-4">
@@ -960,92 +600,15 @@ const TourListingTwoDetails = ({ tourData }) => {
                           </div>
                         ))}
                       </div>
-
-                      {/* <div className="sidebar-two__form__control">
-                        <label htmlFor="checkout">Time:</label>
-                        <DatePicker
-                          selected={startTime}
-                          onChange={(date) => setStartTime(date)}
-                        />
-                      </div>
-                      <div className="sidebar-two__form__control">
-                        <label htmlFor="checkout">Tickets:</label>
-                        <input
-                          id="checkout"
-                          type="text"
-                          name="checkout"
-                          placeholder="Please, Select Date Fist"
-                        />
-                      </div>
-                      <div className="sidebar-two__form__control sidebar-two__form__control--two">
-                        <label
-                          className="sidebar-two__form__control--title"
-                          htmlFor="guests"
-                        >
-                          Add Extra:
-                        </label>
-                        <ul className="list-unstyled sidebar-two__form__checkbox">
-                          <li>
-                            <input type="checkbox" name="check8" id="check8" />
-                            <label htmlFor="check8">
-                              {" "}
-                              <span> Services per booking</span>
-                            </label>
-                          </li>
-                          <li>
-                            <input type="checkbox" name="check9" id="check9" />
-                            <label htmlFor="check9">
-                              <span>Services per person</span>
-                            </label>
-                          </li>
-                        </ul>
-                      </div>
-                      <ul className="list-unstyled sidebar-two__form__add-list">
-                        <li>
-                          <div className="sidebar-two__form__add">
-                            Adult:<span>$20.00</span>
-                          </div>
-                        </li>
-                        <li>
-                          <div className="sidebar-two__form__add">
-                            Youth: <span>$16.00</span>
-                          </div>
-                        </li>
-                      </ul>
-                      <div className="sidebar-two__form__total">
-                        Total:<span>$36.00</span>
-                      </div>
-                      <button
-                        type="submit"
-                        className="gotur-btn gotur-btn--base"
-                      >
-                        Book Now <i className="icon-right"></i>
-                      </button> */}
                     </div>
                   </div>
                 </div>
-
-                {/* <div
-                  className="tour-listing-details__sidebar__item tour-listing-details__sidebar__item-location wow fadeInUp animated"
-                  data-wow-delay="0.4s"
-                  data-wow-duration="1500ms"
-                >
-                  <div className="tour-listing-details__sidebar__item-box">
-                    <iframe
-                      title="Google Map"
-                      src={mapEmbedUrl}
-                      allowFullScreen
-                      className="w-100"
-                      height="300"
-                    />
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
         </Container>
       </section>
-      <VideoModal isOpen={isOpen} setOpen={setOpen} id={videoId} />
+      {/* <VideoModal isOpen={isOpen} setOpen={setOpen} id={videoId} /> */}
     </>
   );
 };

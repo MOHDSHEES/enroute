@@ -291,3 +291,94 @@
   color: #555;
   flex: 1; /* Ensures text wraps correctly */
 }
+
+/* Container Spacing */
+.itinerary-details {
+  padding: 10px 5px;
+}
+
+/* Timeline/List Style */
+.accordion-inner-list {
+  position: relative;
+  padding-left: 5px;
+}
+
+.accordion-inner-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Styled Bullet Icon */
+.bullet-icon {
+  background: rgba(239, 92, 39, 0.1); /* Light version of your orange */
+  color: #ef5c27; /* Your theme base color */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.inner__text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+
+/* Meals Section Styling */
+.itinerary-meals-wrapper {
+  margin-top: 20px;
+  padding: 15px 25px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+
+.meal-header i {
+  color: #ef5c27;
+}
+
+.meal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Individual Meal Badges */
+.meal-badge {
+  background: white;
+  border: 1px solid #eee;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  text-transform: capitalize;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.meal-badge:hover {
+  border-color: #ef5c27;
+  color: #ef5c27;
+}

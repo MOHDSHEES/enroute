@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+// import type { HeadFC, PageProps } from "gatsby";
 import Layout from "@/components/layout/Layout/Layout";
 import TopbarOne from "@/components/common/TopbarOne/TopbarOne";
 import FooterOne from "@/components/layout/FooterOne/FooterOne";
@@ -12,8 +12,8 @@ import HowItWorks from "@/components/sections/HowItWorks/HowItWorks";
 import AboutTestimonials from "@/components/sections/AboutTestimonials/AboutTestimonials";
 import AboutOne from "@/components/sections/AboutOne/AboutOne";
 import PageHeader from "@/components/sections/PageHeader/PageHeader";
-
-const AboutPage: React.FC<PageProps> = () => {
+import About from "../components/about";
+const AboutPage = () => {
   return (
     <ThemeProvider>
       <Layout>
@@ -25,6 +25,7 @@ const AboutPage: React.FC<PageProps> = () => {
           subTitle="About Us"
           img="https://res.cloudinary.com/dtn5i5hpt/image/upload/v1769851845/destination-slider-1-6-_otn5vs.webp"
         />
+        <About />
         <AboutOne />
         <CtaTwo />
         <HowItWorks />
@@ -38,6 +39,6 @@ const AboutPage: React.FC<PageProps> = () => {
 
 export default AboutPage;
 
-export const Head: HeadFC = () => (
+export const Head = () => (
   <title>About || Gotur || Travel & Tour GatsbyJS Template</title>
 );

@@ -65,7 +65,9 @@ const HomeThreePage = () => {
         {/* <HeaderInnerCloned /> */}
 
         <MainSliderThree />
-        <DestinationsTwoTwo categories={categories} />
+        {categories && categories.length > 0 && (
+          <DestinationsTwoTwo categories={categories} />
+        )}
         {trending.length > 0 && (
           <FeatureTwo
             trending={trending}
