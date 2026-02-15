@@ -142,11 +142,15 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
         className="container-fluid"
         style={{ marginTop: "50px" }}
         key="bottom-slider-wrapper"
+        // dir="rtl"
       >
         <div className="destinations-two__inner">
           <TinySlider
             settings={{
               ...baseCarouselOptions,
+              rtl: true,
+              startIndex: secondHalf.length - 1,
+              autoplayDirection: "backward",
               responsive: {
                 0: { items: 2 },
                 768: { items: 5 },
