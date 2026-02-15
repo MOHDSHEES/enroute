@@ -20,15 +20,16 @@ const CategoryDetailSection = ({ category, trips }) => {
     <>
       <section className="tour-listing-page section-space">
         <Container>
-          <div className="product-details__description">
-            <h3
-              className="product-details__description__title wow fadeInUp"
-              data-wow-duration="1500ms"
-              data-wow-delay="500ms"
-            >
-              Description
-            </h3>
-            {/* <p
+          {category.description && (
+            <div className="product-details__description">
+              <h3
+                className="product-details__description__title wow fadeInUp"
+                data-wow-duration="1500ms"
+                data-wow-delay="500ms"
+              >
+                Description
+              </h3>
+              {/* <p
               className="product-details__description__text wow fadeInUp"
               data-wow-duration="1500ms"
               data-wow-delay="500ms"
@@ -38,96 +39,70 @@ const CategoryDetailSection = ({ category, trips }) => {
               Dolorem, neque velit. Beatae quas inventore sunt eum magnam
               placeat temporibus.
             </p> */}
-            <p
+              <p
+                className="product-details__description__text wow fadeInUp"
+                data-wow-duration="1500ms"
+                data-wow-delay="500ms"
+                style={{ whiteSpace: "pre-line" }} // This is the magic line
+              >
+                {category.description}
+              </p>
+              {/* <p
               className="product-details__description__text wow fadeInUp"
               data-wow-duration="1500ms"
               data-wow-delay="500ms"
             >
               {category.description}
-            </p>
-          </div>
+            </p> */}
+            </div>
+          )}
         </Container>
         <Container>
           <PhotoSwipeGallery>
             <Row className="gutter-y-30 gutter-x-30">
-              {trips?.map((item) => (
+              {/* {trips?.map((item) => (
                 <Col lg={4} md={6} key={item.id}>
                   <Card item={item} />
                 </Col>
-                // <Col lg={4} md={6} key={item.id}>
-                //   <div className="item" key={item.id}>
-                //     <div
-                //       className="listing-card-four wow fadeInUp"
-                //       data-wow-duration="1500ms"
-                //     >
-                //       <div className="listing-card-four__image">
-                //         <img src={item.thumbnail_url} alt={item.name} />
-
-                //         <ul className="listing-card-four__meta list-unstyled">
-                //           <li>
-                //             <Link to={`/trip/details/${item.id}`}>
-                //               {" "}
-                //               <span className="listing-card-four__meta__icon">
-                //                 {" "}
-                //                 <i className=""></i>{" "}
-                //               </span>
-                //               Age {item.age_group}
-                //             </Link>
-                //           </li>
-                //           <li>
-                //             <Link to={`/trip/details/${item.id}`}>
-                //               {" "}
-                //               <span className="listing-card-four__meta__icon">
-                //                 {" "}
-                //                 <i className={"calendar"}></i>{" "}
-                //               </span>
-                //               {item.duration_days} Days, {item.duration_nights}{" "}
-                //               Nights
-                //             </Link>
-                //           </li>
-                //         </ul>
-                //       </div>
-                //       <div className="listing-card-four__content">
-                //         {/* <div className='listing-card-four__rating'>
-                //             <span>({item.reviews} Review)</span>
-                //             {[...Array(item.rating)].map((_, i) => (
-                //               <i key={i} className='icon-star'></i>
-                //             ))}
-                //           </div> */}
-                //         <h3
-                //           className="listing-card-four__title"
-                //           style={{ marginTop: "24px" }}
-                //         >
-                //           <Link to={`/trip/details/${item.id}`}>
-                //             {item.name}
-                //           </Link>
-                //         </h3>
-
-                //         <div className="listing-card-four__content__btn">
-                //           <div className="listing-card-four__price">
-                //             <span className="listing-card-four__price__sub">
-                //               Starting from
-                //             </span>
-                //             <span className="listing-card-four__price__number">
-                //               {item.starting_price}
-                //             </span>
-                //           </div>
-                //           <Link
-                //             to={`/trip/details/${item.id}`}
-                //             className="listing-card-four__btn gotur-btn"
-                //           >
-                //             Book Now{" "}
-                //             <span className="icon">
-                //               <i className="icon-right"></i>{" "}
-                //             </span>
-                //           </Link>
-                //         </div>
-                //       </div>
-                //     </div>
-                //   </div>
-                // </Col>
-              ))}
-
+            
+              ))} */}
+              {trips && trips.length > 0 ? (
+                trips.map((item) => (
+                  <Col lg={4} md={6} key={item.id}>
+                    <Card item={item} />
+                  </Col>
+                ))
+              ) : (
+                /* EMPTY STATE MESSAGE */
+                <Col xs={12}>
+                  <div
+                    className="text-center section-space"
+                    style={{
+                      padding: "60px 20px",
+                      backgroundColor: "#f9f9f9",
+                      borderRadius: "20px",
+                      border: "2px dashed #eee",
+                    }}
+                  >
+                    <div className="sec-title">
+                      <h3
+                        className="sec-title__title"
+                        style={{ fontSize: "24px" }}
+                      >
+                        No Trips Found
+                      </h3>
+                      <p className="mt-3">
+                        We couldn't find any trips in this category right now.
+                        Please check back later or explore our other exciting
+                        tours!
+                      </p>
+                      <Link to="/" className="trevlo-btn trevlo-btn--base mt-4">
+                        <span>Explore More</span>
+                      </Link>
+                    </div>
+                  </div>
+                </Col>
+              )}
               {/* <Col xs={12}>
                 <Pagination />
               </Col> */}
