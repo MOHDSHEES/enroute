@@ -46,8 +46,9 @@ export const topbarOne = {
     //   href: "https://twitter.com",
     // },
     {
-      platform: "LinkedIn",
-      iconClass: "icon-linkedin",
+      platform: "Instagram",
+      // <i className='' aria-hidden='true'></i>
+      iconClass: "fab fa-instagram",
       href: "https://www.instagram.com/enroute_tripss?igsh=bjEzNmtpMDk3Z2wy&utm_source=qr", // original HTML had LinkedIn icon but Instagram URL
     },
     // {

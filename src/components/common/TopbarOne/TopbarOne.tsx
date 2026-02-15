@@ -80,10 +80,15 @@ const TopbarOne: React.FC<TopbarOneProps> = ({ extraClass }) => {
             {/* Social Links Section */}
             <div className="top-one__social">
               {socialLinks.map((social: SocialLink, index) => (
-                <Link to={social.href} key={index}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  key={index}
+                >
                   <i className={social.iconClass} aria-hidden="true"></i>
                   <span className="sr-only">{social.platform}</span>
-                </Link>
+                </a>
               ))}
             </div>
           </div>

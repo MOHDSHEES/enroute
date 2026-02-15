@@ -7,7 +7,7 @@ const ctaTwoData = {
   tagline: "What We’re Offering",
   title: "Get 30% Discount Every Tour",
   buttonText: "Start Booking",
-  buttonLink: "/checkout",
+  buttonLink: "/contact",
   bgImage:
     "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1769873162/cta-bg-1-1-4f8684b8ba5959b3e554bbf91444a06f_h3mtfp.jpg",
   ctaMan,
