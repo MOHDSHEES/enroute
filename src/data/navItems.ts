@@ -192,8 +192,23 @@ export const navItems = [
   // },
   {
     id: 72,
-    title: "Contact",
+    title: "Contact Us",
     link: "/contact/",
+  },
+  {
+    id: 73,
+    title: "Weekend Trips",
+    link: "/category/ac20f3de-1087-43a7-97ad-49f89d4e173d/",
+  },
+  {
+    id: 74,
+    title: "BackPacking Trips",
+    link: "/category/af5d2d0b-5ac5-47b5-9a2e-e49ee3ed760c/",
+  },
+  {
+    id: 75,
+    title: "Spiti Valley",
+    link: "/category/118304eb-e239-4872-9777-b6e5d93cbb67/",
   },
 ];
 

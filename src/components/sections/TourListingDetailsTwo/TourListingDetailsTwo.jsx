@@ -11,8 +11,8 @@ import dayjs from "dayjs";
 import Card from "../../card";
 
 const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
-  console.log(tourData);
-  console.log(relatedTrips);
+  // console.log(tourData);
+  // console.log(relatedTrips);
 
   const [showMore, setShowMore] = useState(false);
   const [showMoreNotes, setShowMoreNotes] = useState(false);
@@ -139,7 +139,7 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                   >
                     {(() => {
                       const fullDescription = tourData?.description || "";
-                      const CHAR_LIMIT = 1000; // Threshold for showing the "Read More" button
+                      const CHAR_LIMIT = 800; // Threshold for showing the "Read More" button
                       const isLongDescription =
                         fullDescription.length > CHAR_LIMIT;
 
@@ -185,12 +185,13 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                             onClick={() => setShowMore(!showMore)}
                             style={{
                               background: "none",
+
                               border: "none",
                               color: "var(--gotur-base, #ef5c27)",
                               fontWeight: "bold",
                               cursor: "pointer",
                               padding: "0",
-                              marginTop: "5px",
+                              marginTop: "0px",
                             }}
                           >
                             {showMore ? "Read Less" : "Read More"}
@@ -450,7 +451,7 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                                 fontWeight: "bold",
                                 cursor: "pointer",
                                 padding: "0",
-                                marginTop: "5px",
+                                marginTop: "0px",
                               }}
                             >
                               {showMoreNotes ? "Read Less" : "Read More"}

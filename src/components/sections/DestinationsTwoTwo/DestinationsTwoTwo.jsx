@@ -147,6 +147,11 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
           <TinySlider
             settings={{
               ...baseCarouselOptions,
+              responsive: {
+                0: { items: 2 },
+                768: { items: 5 },
+                1199: { items: 7 },
+              },
               controls: false, // Prevents fighting for DOM nodes with the top slider
             }}
             className="destinations-two__carousel"

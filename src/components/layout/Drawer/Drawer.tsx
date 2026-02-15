@@ -161,18 +161,24 @@ const Drawer: React.FC = () => {
 
         {/* SOCIAL */}
         <div className="mobile-nav__social">
-          <Link to="https://facebook.com" onClick={handleNavClick}>
+          <Link
+            to="https://www.facebook.com/share/183X9hh6ag/?mibextid=wwXIfr"
+            onClick={handleNavClick}
+          >
             <i className="icon-facebook" />
           </Link>
-          <Link to="https://twitter.com" onClick={handleNavClick}>
+          {/* <Link to="https://twitter.com" onClick={handleNavClick}>
             <i className="icon-twitter" />
-          </Link>
-          <Link to="https://instagram.com" onClick={handleNavClick}>
+          </Link> */}
+          <Link
+            to="https://www.instagram.com/enroute_tripss?igsh=bjEzNmtpMDk3Z2wy&utm_source=qr"
+            onClick={handleNavClick}
+          >
             <i className="icon-linkedin" />
           </Link>
-          <Link to="https://youtube.com" onClick={handleNavClick}>
+          {/* <Link to="https://youtube.com" onClick={handleNavClick}>
             <i className="icon-youtube" />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

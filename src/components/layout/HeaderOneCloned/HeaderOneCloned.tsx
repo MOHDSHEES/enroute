@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 
 import { navItems, headerOneNavItems } from "@/data/navItems"; // Import the navItems data
-import DemoPages from "@/components/common/DemoPages/DemoPages";
+// import DemoPages from "@/components/common/DemoPages/DemoPages";
 // import main_logo from "@/assets/images/logo-dark.png";
 import useStore from "@/store/useStore";
 import useScrollUp from "@/hooks/useScrollUp";

@@ -1,6 +1,166 @@
+// "use client";
+
+// import React, { useState, useEffect } from "react";
+// import { navigate, Link } from "gatsby";
+// import { supabase } from "@/lib/supabase";
+
+// const BannerForm: React.FC = () => {
+//   const [searchName, setSearchName] = useState("");
+//   const [results, setResults] = useState<any[]>([]);
+//   const [isFocused, setIsFocused] = useState(false);
+//   const [loading, setLoading] = useState(false);
+
+//   // Search Logic for Supabase trips table
+//   useEffect(() => {
+//     const fetchTrips = async () => {
+//       if (searchName.trim().length < 2) {
+//         setResults([]);
+//         return;
+//       }
+
+//       setLoading(true);
+//       const { data, error } = await supabase
+//         .from("trips")
+//         .select("id, name, starting_price, duration_days")
+//         .eq("is_active", true)
+//         .ilike("name", `%${searchName}%`) // Matches partial trip names
+//         .limit(5);
+
+//       if (!error && data) {
+//         setResults(data);
+//       }
+//       setLoading(false);
+//     };
+
+//     const debounceTimer = setTimeout(fetchTrips, 300);
+//     return () => clearTimeout(debounceTimer);
+//   }, [searchName]);
+
+//   // const handleSubmit = (e: React.FormEvent) => {
+//   //   e.preventDefault();
+//   //   if (results.length > 0) {
+//   //     // Redirect to the first match on Enter
+//   //     navigate(`/trip/${results[0].id}`);
+//   //   }
+//   // };
+
+//   return (
+//     <div
+//       className="banner-form wow fadeInUp"
+//       data-wow-duration="1500ms"
+//       data-wow-delay="300ms"
+//     >
+//       <div className="container">
+//         <div className="banner-form__wrapper">
+//           <div
+//             className="banner-form row gutter-x-30 align-items-center"
+//             style={{ minWidth: "80%", gap: "15px", position: "relative" }}
+//           >
+//             <div
+//               className="banner-form__control banner-form__col--4"
+//               style={{
+//                 flex: 1,
+//                 minWidth: 0,
+//                 paddingRight: "0px",
+//                 position: "relative",
+//               }}
+//             >
+//               <i className="icon icon-search"></i>
+//               <input
+//                 id="search"
+//                 type="text"
+//                 className="form-control"
+//                 placeholder="Search tours, places..."
+//                 value={searchName}
+//                 autoComplete="off"
+//                 onFocus={() => setIsFocused(true)}
+//                 onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+//                 onChange={(e) => setSearchName(e.target.value)}
+//                 style={{
+//                   width: "100%",
+//                   boxShadow: "0 0 0 1px #63ab45",
+//                   borderRadius: "6px",
+//                   padding: "8px 12px",
+//                 }}
+//               />
+
+//               {/* Suggestions Dropdown */}
+//               {isFocused && (results.length > 0 || loading) && (
+//                 <ul
+//                   style={{
+//                     position: "absolute",
+//                     top: "105%",
+//                     left: 0,
+//                     right: 0,
+//                     backgroundColor: "#fff",
+//                     borderRadius: "8px",
+//                     boxShadow: "0px 10px 25px rgba(0,0,0,0.1)",
+//                     listStyle: "none",
+//                     padding: "5px 0",
+//                     zIndex: 100,
+//                     margin: 0,
+//                     border: "1px solid #eee",
+//                   }}
+//                 >
+//                   {loading ? (
+//                     <li
+//                       style={{
+//                         padding: "10px 20px",
+//                         fontSize: "13px",
+//                         color: "#999",
+//                       }}
+//                     >
+//                       Searching...
+//                     </li>
+//                   ) : (
+//                     results.map((trip) => (
+//                       <li key={trip.id}>
+//                         <Link
+//                           to={`/trip/details/${trip.id}`}
+//                           style={{
+//                             display: "block",
+//                             padding: "10px 20px",
+//                             color: "#333",
+//                             textDecoration: "none",
+//                             fontSize: "14px",
+//                             borderBottom: "1px solid #f9f9f9",
+//                           }}
+//                         >
+//                           <span style={{ fontWeight: "600", display: "block" }}>
+//                             {trip.name}
+//                           </span>
+//                           <small style={{ color: "#777" }}>
+//                             {trip.duration_days} Days — Starting ₹
+//                             {trip.starting_price}
+//                           </small>
+//                         </Link>
+//                       </li>
+//                     ))
+//                   )}
+//                 </ul>
+//               )}
+//             </div>
+
+//             {/* <div
+//               className="banner-form__control banner-form__button banner-form__col--5"
+//               style={{ flexShrink: 0, marginLeft: "auto" }}
+//             >
+//               <button className="gotur-btn" type="submit">
+//                 Search
+//               </button>
+//             </div> */}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BannerForm;
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom"; // Essential for breaking out
 import { navigate, Link } from "gatsby";
 import { supabase } from "@/lib/supabase";
 
@@ -10,60 +170,52 @@ const BannerForm: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Search Logic for Supabase trips table
+  const inputRef = useRef<HTMLDivElement>(null);
+  const [coords, setCoords] = useState({ top: 0, left: 0, width: 0 });
+
+  // 1. Fetch Data
   useEffect(() => {
     const fetchTrips = async () => {
       if (searchName.trim().length < 2) {
         setResults([]);
         return;
       }
-
       setLoading(true);
       const { data, error } = await supabase
         .from("trips")
         .select("id, name, starting_price, duration_days")
         .eq("is_active", true)
-        .ilike("name", `%${searchName}%`) // Matches partial trip names
+        .ilike("name", `%${searchName}%`)
         .limit(5);
 
-      if (!error && data) {
-        setResults(data);
-      }
+      if (!error && data) setResults(data);
       setLoading(false);
     };
-
     const debounceTimer = setTimeout(fetchTrips, 300);
     return () => clearTimeout(debounceTimer);
   }, [searchName]);
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (results.length > 0) {
-  //     // Redirect to the first match on Enter
-  //     navigate(`/trip/${results[0].id}`);
-  //   }
-  // };
+  // 2. Calculate position relative to the WHOLE PAGE
+  useEffect(() => {
+    if (isFocused && inputRef.current) {
+      const rect = inputRef.current.getBoundingClientRect();
+      setCoords({
+        top: rect.bottom + window.scrollY,
+        left: rect.left + window.scrollX,
+        width: rect.width,
+      });
+    }
+  }, [isFocused, results]);
 
   return (
-    <div
-      className="banner-form wow fadeInUp"
-      data-wow-duration="1500ms"
-      data-wow-delay="300ms"
-    >
+    <div className="banner-form wow fadeInUp">
       <div className="container">
         <div className="banner-form__wrapper">
-          <div
-            className="banner-form row gutter-x-30 align-items-center"
-            style={{ minWidth: "80%", gap: "15px", position: "relative" }}
-          >
+          <div className="banner-form row align-items-center">
             <div
+              ref={inputRef}
               className="banner-form__control banner-form__col--4"
-              style={{
-                flex: 1,
-                minWidth: 0,
-                paddingRight: "0px",
-                position: "relative",
-              }}
+              style={{ flex: 1, minWidth: 0, position: "relative" }}
             >
               <i className="icon icon-search"></i>
               <input
@@ -84,71 +236,62 @@ const BannerForm: React.FC = () => {
                 }}
               />
 
-              {/* Suggestions Dropdown */}
-              {isFocused && (results.length > 0 || loading) && (
-                <ul
-                  style={{
-                    position: "absolute",
-                    top: "105%",
-                    left: 0,
-                    right: 0,
-                    backgroundColor: "#fff",
-                    borderRadius: "8px",
-                    boxShadow: "0px 10px 25px rgba(0,0,0,0.1)",
-                    listStyle: "none",
-                    padding: "5px 0",
-                    zIndex: 100,
-                    margin: 0,
-                    border: "1px solid #eee",
-                  }}
-                >
-                  {loading ? (
-                    <li
-                      style={{
-                        padding: "10px 20px",
-                        fontSize: "13px",
-                        color: "#999",
-                      }}
-                    >
-                      Searching...
-                    </li>
-                  ) : (
-                    results.map((trip) => (
-                      <li key={trip.id}>
-                        <Link
-                          to={`/trip/details/${trip.id}`}
-                          style={{
-                            display: "block",
-                            padding: "10px 20px",
-                            color: "#333",
-                            textDecoration: "none",
-                            fontSize: "14px",
-                            borderBottom: "1px solid #f9f9f9",
-                          }}
-                        >
-                          <span style={{ fontWeight: "600", display: "block" }}>
-                            {trip.name}
-                          </span>
-                          <small style={{ color: "#777" }}>
-                            {trip.duration_days} Days — Starting ₹
-                            {trip.starting_price}
-                          </small>
-                        </Link>
+              {/* 3. THE PORTAL: This renders OUTSIDE of the banner entirely */}
+              {isFocused &&
+                (results.length > 0 || loading) &&
+                typeof document !== "undefined" &&
+                createPortal(
+                  <ul
+                    style={{
+                      position: "absolute",
+                      top: `${coords.top + 5}px`,
+                      left: `${coords.left}px`,
+                      width: `${coords.width}px`,
+                      backgroundColor: "#fff",
+                      borderRadius: "8px",
+                      boxShadow: "0px 10px 40px rgba(0,0,0,0.3)",
+                      listStyle: "none",
+                      padding: "0",
+                      zIndex: 999999, // Above everything in the app
+                      margin: 0,
+                      border: "1px solid #63ab45",
+                    }}
+                  >
+                    {loading ? (
+                      <li style={{ padding: "15px", color: "#999" }}>
+                        Searching...
                       </li>
-                    ))
-                  )}
-                </ul>
-              )}
+                    ) : (
+                      results.map((trip) => (
+                        <li
+                          key={trip.id}
+                          style={{ borderBottom: "1px solid #f1f1f1" }}
+                        >
+                          <Link
+                            to={`/trip/details/${trip.id}`}
+                            style={{
+                              display: "block",
+                              padding: "12px 20px",
+                              textDecoration: "none",
+                              color: "#333",
+                            }}
+                          >
+                            <span
+                              style={{ fontWeight: "600", display: "block" }}
+                            >
+                              {trip.name}
+                            </span>
+                            <small style={{ color: "#777" }}>
+                              {trip.duration_days} Days — ₹{trip.starting_price}
+                            </small>
+                          </Link>
+                        </li>
+                      ))
+                    )}
+                  </ul>,
+                  document.body // This is the "teleport" destination
+                )}
             </div>
-
-            {/* <div
-              className="banner-form__control banner-form__button banner-form__col--5"
-              style={{ flexShrink: 0, marginLeft: "auto" }}
-            >
-              <button className="gotur-btn" type="submit">
-                Search
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
