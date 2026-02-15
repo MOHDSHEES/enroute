@@ -7,15 +7,15 @@ import PageHeader from "@/components/sections/PageHeader/PageHeader";
 import HeaderInner from "@/components/layout/HeaderInner/HeaderInner";
 import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
 import BlogCarousel from "@/components/sections/BlogCarousel/BlogCarousel";
-import BlogDetails from "@/components/sections/BlogDetails/BlogDetails";
+// import BlogDetails from "@/components/sections/BlogDetails/BlogDetails";
 const BlogPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <TopbarOne />
       <HeaderInner />
-      <HeaderInnerCloned/>
-      <PageHeader title='Blog Details' subTitle='Blog Details' />
-      <BlogDetails />
+      <HeaderInnerCloned />
+      <PageHeader title="Blog Details" subTitle="Blog Details" />
+      {/* <BlogDetails /> */}
       <FooterOne />
     </Layout>
   );
@@ -23,4 +23,6 @@ const BlogPage: React.FC<PageProps> = () => {
 
 export default BlogPage;
 
-export const Head: HeadFC = () => <title>Blog Details || Gotur || Travel & Tour GatsbyJS Template</title>;
+export const Head: HeadFC = () => (
+  <title>Blog Details || Gotur || Travel & Tour GatsbyJS Template</title>
+);
