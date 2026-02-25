@@ -41,8 +41,8 @@ const HeaderOne: React.FC = () => {
       : navItems;
   return (
     <header className="main-header main-header--one sticky-header sticky-header--normal">
-      <div className="container-fluid">
-        <div className="main-header__inner">
+      <div className="container-fluid" style={{ padding: 0 }}>
+        <div className="main-header__inner" style={{ padding: "15px" }}>
           <div
             className="main-header__logo logo-retina"
             style={{ width: "160px" }}

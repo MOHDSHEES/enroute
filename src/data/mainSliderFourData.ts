@@ -1,42 +1,44 @@
 // data/carouselData.ts
-import Image1 from '@/assets/images/main-slider/main-slider-4-1.jpg';
-import Image2 from '@/assets/images/main-slider/main-slider-4-2.jpg';
-import Image3 from '@/assets/images/main-slider/main-slider-4-3.jpg';
-import LineShape from '@/assets/images/shapes/line-shape.png';
-
-
+// import Image1 from "@/assets/images/main-slider/main-slider-4-1.jpg";
+// import Image2 from "@/assets/images/main-slider/main-slider-4-2.jpg";
+// import Image3 from "@/assets/images/main-slider/main-slider-4-3.jpg";
+import LineShape from "@/assets/images/shapes/line-shape.png";
+// let thumbImage = "custom/hero-main.webp";
 
 const mainSliderFourData = [
   {
     id: 1,
-    subtitle: 'Discover Your Listing',
-    title: 'Let’s ',
-    titleSpan: "Discover",
-    titleEnd:"This Tour",
-    imageSrc: Image1,
-    imageAlt: 'Main Slider Image 1',
-    lineShape: LineShape
+    subtitle: "Touching Clouds, Finding Peace",
+    title: "tungnath",
+    titleSpan: "",
+    titleEnd: "",
+    imageSrc:
+      "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772045625/TUngnath_qrawrk.webp",
+    imageAlt: "tungnath",
+    lineShape: LineShape,
   },
   {
     id: 2,
-    subtitle: 'Discover Your Listing',
-    title: 'Let’s ',
-    titleSpan: "Discover",
-    titleEnd:"This Tour",
-    imageSrc: Image2,
-    imageAlt: 'Main Slider Image 2',
-    lineShape: LineShape
+    subtitle: "Where Desert Dreams Awaken",
+    title: "jaisalmer",
+    titleSpan: "",
+    titleEnd: "",
+    imageSrc:
+      "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772045625/jaisalmer_1_mabmam.webp",
+    imageAlt: "jaisalmer",
+    lineShape: LineShape,
   },
   {
     id: 3,
-    subtitle: 'Discover Your Listing',
-    title: 'Let’s ',
-    titleSpan: "Discover",
-    titleEnd:"This Tour",
-    imageSrc: Image3,
-    imageAlt: 'Main Slider Image 3',
-    lineShape: LineShape
-  }
+    subtitle: "Escape To Earth's True Heaven",
+    title: "kashmir ",
+    titleSpan: "",
+    titleEnd: "",
+    imageSrc:
+      "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772045625/kashmir_xg1hjl.webp",
+    imageAlt: "kashmir",
+    lineShape: LineShape,
+  },
 ];
 
 export default mainSliderFourData;

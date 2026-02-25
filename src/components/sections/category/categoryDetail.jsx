@@ -5,7 +5,8 @@ import { Col, Container, Row } from "react-bootstrap";
 import VideoModal from "@/components/common/VideoModal/VideoModal";
 import { Gallery as PhotoSwipeGallery, Item } from "react-photoswipe-gallery";
 import { Link } from "gatsby";
-import Card from "../../card";
+// import Card from "../../card";
+import Card2 from "../../card2";
 // import { tourListingData } from "@/data/tourListingData";
 // import Pagination from "@/components/common/Pagination/Pagination";
 // import image1 from "@/assets/images/blog/listing-list-4-1.jpg";
@@ -68,9 +69,9 @@ const CategoryDetailSection = ({ category, trips }) => {
               ))} */}
               {trips && trips.length > 0 ? (
                 trips.map((item) => (
-                  <Col lg={4} md={6} key={item.id}>
-                    <Card item={item} />
-                  </Col>
+                  // <Col lg={4} md={6} key={item.id}>
+                  <Card2 item={item} />
+                  // </Col>
                 ))
               ) : (
                 /* EMPTY STATE MESSAGE */

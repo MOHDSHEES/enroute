@@ -13,13 +13,13 @@ const TinySlider = loadable(() => import("tiny-slider-react"), {
 
 const DestinationsTwoTwo = ({ categories = [] }) => {
   // 1. Memoize data to prevent re-initialization crashes during page transitions
-  const { firstHalf, secondHalf } = useMemo(() => {
-    const midpoint = Math.ceil(categories.length / 2);
-    return {
-      firstHalf: categories.slice(0, midpoint),
-      secondHalf: categories.slice(midpoint),
-    };
-  }, [categories]);
+  // const { firstHalf, secondHalf } = useMemo(() => {
+  //   const midpoint = Math.ceil(categories.length / 2);
+  //   return {
+  //     firstHalf: categories.slice(0, midpoint),
+  //     secondHalf: categories.slice(midpoint),
+  //   };
+  // }, [categories]);
 
   // 2. Stable Configuration
   // loop: false + rewind: true is the "secret sauce" for stopping the outerHTML error
@@ -37,8 +37,8 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
     loop: false,
     responsive: {
       0: { items: 2 },
-      768: { items: 5 },
-      1199: { items: 7 },
+      768: { items: 3 },
+      1199: { items: 4 },
     },
   };
 
@@ -109,7 +109,7 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
             }}
             className="destinations-two__carousel"
           >
-            {firstHalf.map((cate) => (
+            {categories.map((cate) => (
               <div key={`top-${cate.id}`}>
                 <div className="item">
                   <div className="destinations-card-two">
@@ -138,7 +138,7 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
       </div>
 
       {/* BOTTOM SLIDER */}
-      <div
+      {/* <div
         className="container-fluid"
         style={{ marginTop: "50px" }}
         key="bottom-slider-wrapper"
@@ -186,7 +186,7 @@ const DestinationsTwoTwo = ({ categories = [] }) => {
             ))}
           </TinySlider>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

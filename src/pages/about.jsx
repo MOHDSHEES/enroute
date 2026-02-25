@@ -7,12 +7,13 @@ import FooterOne from "@/components/layout/FooterOne/FooterOne";
 import ThemeProvider from "@/provider/ThemeProvider";
 import HeaderInner from "@/components/layout/HeaderInner/HeaderInner";
 import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
-import CtaTwo from "@/components/sections/CtaTwo/CtaTwo";
+// import CtaTwo from "@/components/sections/CtaTwo/CtaTwo";
 import HowItWorks from "@/components/sections/HowItWorks/HowItWorks";
-import AboutTestimonials from "@/components/sections/AboutTestimonials/AboutTestimonials";
+// import AboutTestimonials from "@/components/sections/AboutTestimonials/AboutTestimonials";
 import AboutOne from "@/components/sections/AboutOne/AboutOne";
 import PageHeader from "@/components/sections/PageHeader/PageHeader";
 import About from "../components/about";
+import TestimonialsTwo from "@/components/sections/TestimonialsTwo/TestimonialsTwo";
 const AboutPage = () => {
   return (
     <ThemeProvider>
@@ -27,10 +28,12 @@ const AboutPage = () => {
         />
         <About />
         <AboutOne />
-        <CtaTwo />
+        {/* <CtaTwo /> */}
         <HowItWorks />
-        <AboutTestimonials />
+        {/* <AboutTestimonials /> */}
         {/* <InstagramOne /> */}
+        <TestimonialsTwo />
+
         <FooterOne />
       </Layout>
     </ThemeProvider>

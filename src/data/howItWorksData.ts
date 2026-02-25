@@ -9,19 +9,19 @@ export const howItWorksData = {
       icon: "icon-icon-1",
       title: "Select Destination",
       description:
-        "In a free hour, when our power of choice is untrammelled and when nothing prevents dolor sit amet, consectetur",
+        "Explore a world of possibilities. Filter by interest, region, or season to find the ideal destination that matches your travel goals and aspirations.",
     },
     {
       icon: "icon-icon-2",
-      title: "Make an Appointments",
+      title: "Schedule a Consultation",
       description:
-        "Integer feugiat tortor non there are many other nullam In a free hour, when our power of choice is untrammelled",
+        "Book a one-on-one session with a dedicated specialist. We provide professional guidance to help you navigate bookings, visas, and exclusive local experiences.",
     },
     {
       icon: "icon-icon-3",
-      title: "Enjoy Our Tour",
+      title: "Experience the Journey",
       description:
-        "In a free hour, when our power of choice is untrammelled and when nothing preventsnon there",
+        "Embark on your journey with total peace of mind. Our 24/7 support and expert local guides are dedicated to making your tour smooth and spectacular.",
     },
   ],
   shapeImage: howToShapeImage,

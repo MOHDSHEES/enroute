@@ -49,7 +49,7 @@ const HeaderInnerCloned: React.FC = () => {
         scrollToTop ? " active" : ""
       }`}
     >
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ padding: 0 }}>
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">

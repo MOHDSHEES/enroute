@@ -11,6 +11,7 @@ import { Gallery as PhotoSwipeGallery, Item } from "react-photoswipe-gallery";
 import loadable from "@loadable/component";
 import { Link } from "gatsby";
 import Card from "../../card";
+import Card2 from "../../card2";
 // import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
 
 const TinySlider = loadable(() => import("tiny-slider-react"), {
@@ -107,7 +108,8 @@ const FeatureTwo = ({ trending, extraClass, id }) => {
                     }}
                   >
                     {trending.map((item) => (
-                      <Card item={item} key={item.id} />
+                      // <Card item={item} key={item.id} />
+                      <Card2 item={item} key={item.id} />
                       // <div className="item" key={item.id}>
                       //   <div
                       //     className="listing-card-four wow fadeInUp"

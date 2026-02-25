@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import testimonialsTwoData from "@/data/testimonialsTwoData";
-import TextAnimation from "@/components/common/AnimatedText/TextAnimation";
+// import TextAnimation from "@/components/common/AnimatedText/TextAnimation";
 import loadable from "@loadable/component";
-import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+// import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
 
 const TinySlider = loadable(() => import("tiny-slider-react"), {
   ssr: false,
@@ -42,13 +42,17 @@ const TestimonialCard = ({
   const needsReadMore = testimonial.text.length > charLimit;
 
   return (
-    <div className="testimonials-two-card">
+    <div
+      className="testimonials-two-card testimonials-two-card--two  wow fadeInUp"
+      data-wow-duration="1500ms"
+      data-wow-delay="00ms"
+    >
       <div className="testimonials-two-card__inner">
         <div className="testimonials-two-card__top">
           <img src={testimonial.image} alt={testimonial.name} />
         </div>
         <div className="testimonials-two-card__content">
-          <div className="testimonials-two-card__author">
+          <div className="testimonials-two-card__content testimonials-two-card__content--two">
             <h4 className="testimonials-two-card__author__name">
               {testimonial.name}
             </h4>
@@ -139,66 +143,68 @@ const TestimonialsTwo = () => {
   };
 
   return (
-    <section className="testimonials-two" id="testimonials">
-      <Container fluid>
-        <Row className="align-items-center gy-4">
-          <Col xl={4} xxl={3}>
-            <div className="mb-4">
-              <div className="sec-title">
-                <h6 className="sec-title__tagline">
-                  <TextAnimation text={tagline} animationType="right" />
-                </h6>
-                <h3 className="sec-title__title">
-                  <TextAnimation text={title} animationType="left" />
-                  <span>
-                    <TextAnimation text={highlighted} animationType="left" />
-                  </span>
-                </h3>
+    <section className="testimonial-page section-space">
+      <Row className="justify-content-center mb-5">
+        <Col lg={8} className="text-center">
+          <div className="sec-title">
+            <h6 className="sec-title__tagline">{tagline}</h6>
+            <h3 className="sec-title__title">
+              {title} <span>{highlighted}</span>
+            </h3>
+          </div>
+        </Col>
+      </Row>
+      <Container>
+        <div className="testimonial-page__carousel gotur-owl__carousel gotur-owl__carousel--with-shadow gotur-owl__carousel--basic-nav owl-carousel owl-theme owl-loaded owl-drag">
+          <TinySlider settings={settings}>
+            {testimonials.map((testimonial: Testimonial) => (
+              <div key={testimonial.id}>
+                <TestimonialCard
+                  testimonial={testimonial}
+                  isExpanded={expandedId === testimonial.id}
+                  onToggle={() =>
+                    setExpandedId(
+                      expandedId === testimonial.id ? null : testimonial.id
+                    )
+                  }
+                />
               </div>
-              <div className="testimonials-two__bottom__nav">
-                <button className="testimonials-two__carousel__nav--left">
-                  <span className="icon-arrow-left"></span>
-                </button>
-                <button className="testimonials-two__carousel__nav--right">
-                  <span className="icon-arrow-right"></span>
-                </button>
-              </div>
-            </div>
-          </Col>
-
-          <Col xl={8} xxl={9}>
-            <TinySlider
-              settings={settings}
-              className="testimonials-two__carousel gotur-owl__carousel gotur-owl__carousel--custom-nav gotur-owl__carousel--with-shadow owl-carousel owl-theme"
+            ))}
+          </TinySlider>
+          <div className="testimonials-two__bottom__nav owl-nav">
+            <button className="testimonials-two__carousel__nav--left">
+              <span className="icon-arrow-left"></span>
+            </button>
+            <button className="testimonials-two__carousel__nav--right">
+              <span className="icon-arrow-right"></span>
+            </button>
+          </div>
+          {/* <div className="owl-nav">
+            <button
+              type="button"
+              role="presentation"
+              className="owl-prev"
+              aria-label="carousel button"
             >
-              {testimonials.map((testimonial: Testimonial) => (
-                <div key={testimonial.id}>
-                  <TestimonialCard
-                    testimonial={testimonial}
-                    isExpanded={expandedId === testimonial.id}
-                    onToggle={() =>
-                      setExpandedId(
-                        expandedId === testimonial.id ? null : testimonial.id
-                      )
-                    }
-                  />
-                </div>
-              ))}
-            </TinySlider>
-          </Col>
-        </Row>
+              <span className="icon-arrow-left"></span>
+            </button>
+            <button
+              type="button"
+              role="presentation"
+              className="owl-next"
+              aria-label="carousel button"
+            >
+              <span className="icon-arrow-right"></span>
+            </button>
+          </div> */}
+        </div>
       </Container>
-      <div
-        className="testimonials-two__element"
-        style={{ width: "165px", height: "241px" }}
-      >
-        <DynamicImage src={elementImage} alt="" />
-      </div>
     </section>
   );
 };
 
 export default TestimonialsTwo;
+
 // "use client";
 
 // import React, { useState } from "react";

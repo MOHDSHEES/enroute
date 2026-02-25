@@ -114,9 +114,9 @@ const BlogTwoTwo = () => {
         </Row>
       </Container>
 
-      <div className="blog-two__element">
+      {/* <div className="blog-two__element">
         <DynamicImage src={shape} alt="" />
-      </div>
+      </div> */}
     </section>
   );
 };

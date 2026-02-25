@@ -42,7 +42,7 @@ const HeaderInner: React.FC = () => {
 
   return (
     <header className="main-header main-header--two sticky-header sticky-header--normal">
-      <div className="container-fluid">
+      <div className="container-fluid" style={{ padding: 0 }}>
         <div className="main-header__inner">
           <div className="main-header__logo logo-retina">
             <Link to="/">

@@ -9,6 +9,7 @@ import { Gallery as PhotoSwipeGallery, Item } from "react-photoswipe-gallery";
 // import { contactFormFields } from "@/data/contactData";
 import dayjs from "dayjs";
 import Card from "../../card";
+import { Link } from "gatsby";
 
 const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
   // console.log(tourData);
@@ -111,9 +112,9 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                 </div>
               </li>
               <li>
-                <a href="" className="gotur-btn">
+                <Link href="/contact" className="gotur-btn">
                   Get Itinary
-                </a>
+                </Link>
               </li>
             </ul>
           </Container>

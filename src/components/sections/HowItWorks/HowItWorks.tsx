@@ -56,12 +56,12 @@ const HowItWorks: React.FC = () => {
           <DynamicImage src={shapeImage} alt="shape-image" />
         </div>
       </Container>
-      <div
+      {/* <div
         className="how-to-work__element"
         style={{ width: "209px", height: "305px" }}
       >
         <DynamicImage src={laggesImage} alt="how-lagges" />
-      </div>
+      </div> */}
     </section>
   );
 };

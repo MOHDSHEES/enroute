@@ -3,13 +3,14 @@ import { useState, useEffect } from "react"; // Added hooks
 import Layout from "@/components/layout/Layout/Layout";
 import FooterOne from "@/components/layout/FooterOne/FooterOne";
 import TopbarOne from "@/components/common/TopbarOne/TopbarOne";
-import HeaderOne from "@/components/layout/HeaderOne/HeaderOne";
-import HeaderOneCloned from "@/components/layout/HeaderOneCloned/HeaderOneCloned";
-import AboutOne from "@/components/sections/AboutOne/AboutOne";
+// import HeaderOne from "@/components/layout/HeaderOne/HeaderOne";
+// import HeaderOneCloned from "@/components/layout/HeaderOneCloned/HeaderOneCloned";
+// import AboutOne from "@/components/sections/AboutOne/AboutOne";
 
 import FeatureTwo from "@/components/sections/FeatureTwo/FeatureTwo";
-import MainSliderThree from "@/components/sections/MainSliderThree/MainSliderThree";
-import OfferTwo from "@/components/sections/OfferTwo/OfferTwo";
+// import MainSliderThree from "@/components/sections/MainSliderThree/MainSliderThree";
+import MainSliderFour from "@/components/sections/MainSliderFour/MainSliderFour";
+// import OfferTwo from "@/components/sections/OfferTwo/OfferTwo";
 import TestimonialsTwo from "@/components/sections/TestimonialsTwo/TestimonialsTwo";
 import DestinationCarouselTwo from "@/components/sections/DestinationCarouselTwo/DestinationCarouselTwo";
 import BlogTwoTwo from "@/components/sections/BlogTwoTwo/BlogTwoTwo";
@@ -17,8 +18,10 @@ import ThemeProvider from "@/provider/ThemeProvider";
 import DestinationsTwoTwo from "@/components/sections/DestinationsTwoTwo/DestinationsTwoTwo";
 import { supabase } from "@/lib/supabase";
 import About from "../components/about";
+import HeaderInner from "@/components/layout/HeaderInner/HeaderInner";
+import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
 // import HeaderInnerCloned from "@/components/layout/HeaderInnerCloned/HeaderInnerCloned";
-
+import City from "@/components/sections/city/city";
 const HomeThreePage = () => {
   // 1. Initialize state for your data
   const [trending, setTrending] = useState([]);
@@ -60,14 +63,17 @@ const HomeThreePage = () => {
     <ThemeProvider>
       <Layout>
         <TopbarOne />
-        <HeaderOne />
-        <HeaderOneCloned />
+        <HeaderInner />
+        <HeaderInnerCloned />
+        {/* <HeaderOne />
+        <HeaderOneCloned /> */}
         {/* <HeaderInnerCloned /> */}
-
-        <MainSliderThree />
+        <MainSliderFour />
+        {/* <MainSliderThree /> */}
         {categories && categories.length > 0 && (
           <DestinationsTwoTwo categories={categories} />
         )}
+        <City />
         {trending.length > 0 && (
           <FeatureTwo
             trending={trending}
@@ -75,7 +81,7 @@ const HomeThreePage = () => {
             id="popular"
           />
         )}
-        <OfferTwo />
+        {/* <OfferTwo /> */}
         <About />
         {/* <AboutOne /> */}
         {/* Categories Section */}

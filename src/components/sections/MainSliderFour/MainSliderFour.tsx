@@ -41,31 +41,31 @@ const settings = {
 
 const MainSliderFour: React.FC = () => {
   return (
-    <section className='main-slider-four' id='home'>
-      <div className='main-slider-four__carousel gotur-owl__carousel owl-carousel'>
+    <section className="main-slider-four" id="home">
+      <div className="main-slider-four__carousel gotur-owl__carousel owl-carousel">
         <TinySlider settings={settings}>
           {mainSliderFourData?.map((item: SliderItem) => (
             <div key={item.id}>
-              <div className='item'>
-                <div className='main-slider-four__item'>
+              <div className="item">
+                <div className="main-slider-four__item">
                   <div
-                    className='main-slider-four__bg'
+                    className="main-slider-four__bg"
                     style={{
                       backgroundImage: `url(${item.imageSrc})`,
                     }}
                   ></div>
-                  <div className='container'>
-                    <div className='main-slider-four__content'>
-                      <h5 className='main-slider-four__subtitle'>
+                  <div className="container">
+                    <div className="main-slider-four__content">
+                      <h5 className="main-slider-four__subtitle">
                         {item.subtitle}
                       </h5>
-                      <h2 className='main-slider-four__title'>
+                      <h2 className="main-slider-four__title">
                         {item.title}
-                        <span>
+                        {/* <span>
                           {item.titleSpan}
                           <img src={item.lineShape} alt='line' />
                         </span>
-                        {item.titleEnd}
+                        {item.titleEnd} */}
                       </h2>
                     </div>
                   </div>
@@ -74,28 +74,28 @@ const MainSliderFour: React.FC = () => {
             </div>
           ))}
         </TinySlider>
-        <div className='owl-nav'>
+        <div className="owl-nav">
           <button
-            type='button'
-            role='presentation'
-            className='owl-prev'
-            aria-label='carousel button'
+            type="button"
+            role="presentation"
+            className="owl-prev"
+            aria-label="carousel button"
           >
-            <span className='icon-arrow-left'></span>
+            <span className="icon-arrow-left"></span>
           </button>
           <button
-            type='button'
-            role='presentation'
-            className='owl-next'
-            aria-label='carousel button'
+            type="button"
+            role="presentation"
+            className="owl-next"
+            aria-label="carousel button"
           >
-            <span className='icon-arrow-right'></span>
+            <span className="icon-arrow-right"></span>
           </button>
         </div>
       </div>
-      <div className='main-slider-four__action-form'>
-        <Container>
-          <div className='main-slider-four__form'>
+      <div className="main-slider-four__action-form">
+        <Container style={{ padding: 0 }}>
+          <div className="main-slider-four__form" style={{ width: "100%" }}>
             <BannerForm />
           </div>
         </Container>
