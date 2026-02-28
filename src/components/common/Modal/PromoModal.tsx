@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { supabase } from "@/lib/supabase";
+// import { supabase } from "@/lib/supabase";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -61,14 +61,14 @@ const PromoModal: React.FC = () => {
 
     try {
       // 2. Save to Supabase
-      const { error: dbError } = await supabase.from("leads").insert([
-        {
-          full_name: formData.name,
-          phone: formData.mobile,
-          destination: formData.destination,
-        },
-      ]);
-      if (dbError) throw dbError;
+      // const { error: dbError } = await supabase.from("leads").insert([
+      //   {
+      //     full_name: formData.name,
+      //     phone: formData.mobile,
+      //     destination: formData.destination,
+      //   },
+      // ]);
+      // if (dbError) throw dbError;
 
       // 3. Send via EmailJS
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
