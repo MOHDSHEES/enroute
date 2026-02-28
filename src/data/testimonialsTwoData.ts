@@ -27,7 +27,7 @@ const testimonialsTwoData = {
     },
     {
       id: 3,
-      name: "Mayank Shbisht",
+      name: "Mayank Sbisht",
       // position: "Marketing Coordinator",
       text: "Our Jaisalmer trip with Enroute Trips was absolutely flawless from start to finish! We didn’t have to worry about a single thing—pickups were on time, the itinerary was perfectly paced, and the hotel stays in the city were comfortable and well-located. A huge shoutout to our trip coordinator for keeping everyone energized and ensuring we covered every spot from the Fort to Gadisar Lake without feeling rushed. Highly recommended for anyone looking for a stress-free Rajasthan experience!",
       image:
