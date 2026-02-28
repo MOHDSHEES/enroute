@@ -4,6 +4,7 @@ import useStore from "@/store/useStore";
 import { Link } from "gatsby";
 import { navItems } from "@/data/navItems";
 import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+import { getUpcomingMonths } from "../HeaderInner/HeaderInner";
 
 interface SubMenu {
   id: number;
@@ -45,7 +46,8 @@ const Drawer: React.FC = () => {
     setIsSubItems((prev) => (prev === subItemId ? null : subItemId));
     setOpenSubItemId((prev) => (prev === subItemId ? null : subItemId));
   };
-
+  const upcomingToursSubMenu = getUpcomingMonths();
+  const upcomingToursId = 999;
   return (
     <div
       className={`mobile-nav__wrapper ${mobileDrawerStatus ? "expanded" : ""}`}
@@ -142,6 +144,36 @@ const Drawer: React.FC = () => {
                 </ul>
               </li>
             ))}
+            <li
+              className={`dropdown ${
+                isItems === upcomingToursId ? "open" : ""
+              }`}
+            >
+              <div className="main-menu__list__wrapper">
+                <Link to="#" onClick={(e) => e.preventDefault()}>
+                  Upcoming Tours
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => toggleDropdown(upcomingToursId)}
+                >
+                  <i className="fa fa-angle-down"></i>
+                </button>
+              </div>
+              <ul
+                className={`close ${
+                  openNavItemId === upcomingToursId ? "open" : ""
+                }`}
+              >
+                {upcomingToursSubMenu.map((month) => (
+                  <li key={month.id}>
+                    <Link to={month.link} onClick={handleNavClick}>
+                      {month.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </div>
 

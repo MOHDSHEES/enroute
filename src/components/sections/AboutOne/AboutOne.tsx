@@ -213,9 +213,9 @@ const AboutOne: React.FC<AboutOneProps> = ({ extraclass }) => {
       <div className="about-one__element-one">
         <DynamicImage src={images.shape1} alt="element" />
       </div>
-      <div className="about-one__element-two">
+      {/* <div className="about-one__element-two">
         <DynamicImage src={images.shape2} alt="element" />
-      </div>
+      </div> */}
     </section>
   );
 };

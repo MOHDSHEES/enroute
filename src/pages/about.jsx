@@ -42,6 +42,4 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head = () => (
-  <title>About || Gotur || Travel & Tour GatsbyJS Template</title>
-);
+export const Head = () => <title>About || Enroute</title>;

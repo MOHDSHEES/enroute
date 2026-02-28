@@ -11,6 +11,7 @@ import useScrollUp from "@/hooks/useScrollUp";
 import MegaMenu from "@/components/common/MegaMenu/MegaMenu";
 import { useLocation } from "@reach/router";
 import DynamicImage from "@/components/common/DynamicImage/DynamicImage";
+import { getUpcomingMonths } from "../HeaderInner/HeaderInner";
 interface NavItem {
   id: number;
   title: string;
@@ -91,6 +92,10 @@ const HeaderInnerCloned: React.FC = () => {
                   {item.subMenu && renderSubMenu(item.subMenu)}
                 </li>
               ))}
+              <li className="dropdown">
+                <Link to="#">Upcoming Tours</Link>
+                {renderSubMenu(getUpcomingMonths())}
+              </li>
             </ul>
           </nav>
           <div className="main-header__right">

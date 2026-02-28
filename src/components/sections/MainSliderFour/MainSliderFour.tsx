@@ -20,14 +20,13 @@ const MainSliderFour: React.FC = () => {
     lazyload: true,
     nav: false,
     // navPosition: "bottom",
-
     mouseDrag: true,
     items: 1,
     gutter: 0,
     autoplay: true,
     autoplayButtonOutput: false,
     // CHANGE 1: Set controls to true but REMOVE controlsContainer
-    controls: true,
+    controls: false,
     loop: true,
     mode: "gallery",
     speed: 1000,

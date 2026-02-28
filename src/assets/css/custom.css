@@ -398,3 +398,26 @@
     box-shadow: none;
   }
 }
+
+.promo-modal .modal-content {
+  border-radius: 15px;
+  border: none;
+  padding: 20px;
+}
+
+.promo-modal .modal-header {
+  border-bottom: none;
+}
+
+.promo-modal .modal-title {
+  font-weight: 700;
+  color: #333;
+}
+@media (max-width: 1024px) {
+  .main-header__inner {
+    padding: 0 10px;
+  }
+  .main-header--two .main-header__inner {
+    padding: 0 10px;
+  }
+}

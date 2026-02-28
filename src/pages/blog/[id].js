@@ -45,6 +45,4 @@ const BlogPage = ({ params }) => {
 
 export default BlogPage;
 
-export const Head = () => (
-  <title>Blog Details || Gotur || Travel & Tour GatsbyJS Template</title>
-);
+export const Head = () => <title>Blog Details || Enroute Trips</title>;

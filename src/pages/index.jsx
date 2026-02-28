@@ -100,7 +100,7 @@ const HomeThreePage = () => {
 export default HomeThreePage;
 
 // 3. Simple Head component (serverData is no longer needed here)
-export const Head = () => <title>Home Three || Gotur || Travel & Tour</title>;
+export const Head = () => <title>Enroute || Travel & Tour</title>;
 
 // import * as React from "react";
 // // import type { HeadFC, PageProps } from "gatsby";

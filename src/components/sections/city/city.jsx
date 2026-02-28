@@ -127,7 +127,7 @@ const City = () => {
                       className="destinations-card-two__title"
                       style={titleStyle}
                     >
-                      <Link to={`/category/${cate.id}`}>{cate.name}</Link>
+                      {cate.name}
                     </h4>
                   </div>
                 </div>
@@ -178,7 +178,8 @@ const City = () => {
                       className="destinations-card-two__title"
                       style={titleStyle}
                     >
-                      <Link to={`/category/${cate.id}`}>{cate.name}</Link>
+                      {cate.name}
+                      {/* <Link to={`/category/${cate.id}`}>{cate.name}</Link> */}
                     </h4>
                   </div>
                 </div>

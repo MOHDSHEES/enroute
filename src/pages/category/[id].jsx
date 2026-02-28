@@ -216,7 +216,7 @@ const CategoryDetail = ({ params }) => {
 export default CategoryDetail;
 
 export const Head = () => {
-  return <title>Category Details || Gotur || Travel & Tour</title>;
+  return <title>Category Details || Enroute Trips || Travel & Tour</title>;
 };
 // // import * as React from "react";
 // import React from "react";

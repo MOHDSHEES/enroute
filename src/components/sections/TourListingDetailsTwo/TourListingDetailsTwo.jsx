@@ -113,7 +113,7 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
               </li>
               <li>
                 <Link href="/contact" className="gotur-btn">
-                  Get Itinary
+                  Get Itinerary
                 </Link>
               </li>
             </ul>
@@ -526,7 +526,7 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                   </div>
                 </div>
 
-                {/* Related Tours Section */}
+                {/* Related Tours Section
                 {relatedTrips && relatedTrips.length > 0 && (
                   <div className="tour-listing-details__content__item tour-listing-details__ture-list">
                     <h4 className="tour-listing-details__title">
@@ -542,7 +542,7 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                       </div>
                     </PhotoSwipeGallery>
                   </div>
-                )}
+                )} */}
                 <div
                   className="tour-listing-details__content__item tour-listing-details__calender wow fadeInUp animated"
                   data-wow-duration="1500ms"
@@ -575,8 +575,9 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
                         {tourData?.trip_dates?.map((date) => (
                           <div key={date.id} className="date-slot">
                             <p className="date-slot__text">
-                              {dayjs(date.start_date).format("DD MMM")} -{" "}
-                              {dayjs(date.end_date).format("DD MMM")}
+                              {dayjs(date.start_date).format("DD MMM")}
+                              {/* -{" "}
+                              {dayjs(date.end_date).format("DD MMM")} */}
                             </p>
                           </div>
                         ))}
@@ -608,6 +609,21 @@ const TourListingTwoDetails = ({ tourData, relatedTrips }) => {
               </div>
             </div>
           </div>
+          {/* Related Tours Section */}
+          {relatedTrips && relatedTrips.length > 0 && (
+            <div className="tour-listing-details__content__item tour-listing-details__ture-list">
+              <h4 className="tour-listing-details__title">Related Tours</h4>
+              <PhotoSwipeGallery>
+                <div className="row">
+                  {relatedTrips.map((item, index) => (
+                    <Col lg={4} md={4} key={index}>
+                      <Card item={item} />
+                    </Col>
+                  ))}
+                </div>
+              </PhotoSwipeGallery>
+            </div>
+          )}
         </Container>
       </section>
       {/* <VideoModal isOpen={isOpen} setOpen={setOpen} id={videoId} /> */}

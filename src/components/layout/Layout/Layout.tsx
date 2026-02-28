@@ -28,6 +28,7 @@ interface LayoutProps {
 }
 import { useLocation } from "@reach/router";
 import Preloader from "@/components/common/Preloader/Preloader";
+import PromoModal from "@/components/common/Modal/PromoModal";
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   useWow();
   const [showPreloader, setShowPreloader] = useState(true);
@@ -54,6 +55,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <DrawerTwo />
       <Search />
       <Sidebar />
+      <PromoModal />
       <ScrollTop />
     </div>
   );

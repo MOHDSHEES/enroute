@@ -15,6 +15,31 @@ interface NavItem {
   subMenu?: NavItem[];
 }
 
+export const getUpcomingMonths = () => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const currentMonthIndex = new Date().getMonth(); // 0 for Jan, 1 for Feb, etc.
+
+  // Slice from current month to the end of the year
+  return months.slice(currentMonthIndex).map((month, index) => ({
+    id: 100 + index, // Unique ID
+    title: month,
+    link: `/upcoming/${month.toLowerCase()}`,
+  }));
+};
 const HeaderInner: React.FC = () => {
   const location = useLocation();
   const pathname = location.pathname;
@@ -84,6 +109,10 @@ const HeaderInner: React.FC = () => {
                   {item.subMenu && renderSubMenu(item.subMenu)}
                 </li>
               ))}
+              <li className="dropdown">
+                <Link to="#">Upcoming Tours</Link>
+                {renderSubMenu(getUpcomingMonths())}
+              </li>
             </ul>
           </nav>
           <div className="main-header__right">
