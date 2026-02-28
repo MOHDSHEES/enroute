@@ -33,13 +33,30 @@ const testimonialsTwoData = {
       image:
         "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1771073210/unnamed_1_qsoiip.png",
     },
-    // {
-    //   id: 4,
-    //   name: "Jacob Jones",
-    //   position: "Web Designer",
-    //   text: "Consectetur adipiscing elit. Integer nunc viverra laoreet est the is porta pretium metus aliquam eget maecenas porta is nunc viverra Aenean pulvinar maximus leo",
-    //   image: image2,
-    // },
+    {
+      id: 4,
+      name: "Dinesh Yadav",
+      // position: "Web Designer",
+      text: "Had an amazing experience with Enroute Trips on the Chopta–Tungnath weekend trip. From smooth travel arrangements to comfortable stays, everything was well-managed. The trip leaders were super helpful, friendly, and ensured everyone felt safe and included throughout the journey. The trek to Tungnath was surreal, and the views were absolutely worth it! Bonfire nights, great group vibes, and hassle-free planning made this trip truly memorable. Highly recommend Enroute Trips for anyone looking for a well-organized and fun mountain getaway. 🌄✨",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772286019/Untitled_design_17_wj9wnk.png",
+    },
+    {
+      id: 5,
+      name: "Aasif Ali",
+      // position: "Web Designer",
+      text: "I recently booked the Chopta Uttarakhand tour package with “ENROUTE TOUR N TRAVEL PVT LTD” and it was absolutely fantastic! From start to finish, everything was perfectly organized. The accommodations were comfortable with breathtaking views of the Himalayas, the meals were delicious, and the itinerary was well-planned with just the right balance of adventure and relaxation. Highly recommended a perfectly planned Chopta Uttarakhand trip with great service, comfortable stay, and unforgettable views…!! 😊😊",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772286019/Untitled_design_17_wj9wnk.png",
+    },
+    {
+      id: 6,
+      name: "Aparna Sharma",
+      // position: "Web Designer",
+      text: "Been availing of outstation bus services with Enroute for many trips. Everytime very punctual. Unlike others, their drivers are very professional and vehicles are of the highest quality.",
+      image:
+        "https://res.cloudinary.com/dtn5i5hpt/image/upload/v1772286019/Untitled_design_18_arcan3.png",
+    },
   ],
 };
 
