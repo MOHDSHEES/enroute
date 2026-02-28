@@ -298,7 +298,7 @@ const Card2 = ({ item }) => {
               >
                 Book Now{" "}
                 <span className="icon">
-                  <i className="icon-right"></i>
+                  <i className="icon-right" style={{ color: "white" }}></i>
                 </span>
               </Link>
               {/* <i className='far fa-heart'></i> */}
